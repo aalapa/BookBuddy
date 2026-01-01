@@ -20,6 +20,8 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
     val totalBooksRead: Flow<Int>
     val booksInQueueCount: Flow<Int>
     val categories: Flow<List<com.bookbuddy.data.Category>>
+    val allAuthors: Flow<List<String>>
+    val allCategoriesForFilter: Flow<List<String>>
 
     init {
         android.util.Log.d("BookBuddy", "Initializing BookViewModel...")
@@ -45,6 +47,8 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
             totalBooksRead = repository.getTotalBooksRead()
             booksInQueueCount = repository.getBooksInQueueCount()
             categories = repository.getAllCategories()
+            allAuthors = repository.getAllAuthors()
+            allCategoriesForFilter = repository.getAllCategoriesForFilter()
             android.util.Log.d("BookBuddy", "BookViewModel initialized successfully")
         } catch (e: Exception) {
             android.util.Log.e("BookBuddy", "Failed to initialize ViewModel", e)
@@ -139,9 +143,9 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    suspend fun getFilteredBooks(author: String?, category: String?, sortBy: String): List<Book> {
+    suspend fun getFilteredBooks(author: String?, category: String?, titleSearch: String?, sortBy: String): List<Book> {
         return try {
-            repository.getBooksToReadFiltered(author, category, sortBy)
+            repository.getBooksToReadFiltered(author, category, titleSearch, sortBy)
         } catch (e: Exception) {
             _errorMessage.value = e.message
             emptyList()

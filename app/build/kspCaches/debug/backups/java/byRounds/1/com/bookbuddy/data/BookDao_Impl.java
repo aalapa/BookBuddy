@@ -61,7 +61,7 @@ public final class BookDao_Impl implements BookDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `books` (`id`,`name`,`author`,`category`,`ranking`,`hasBook`,`status`,`startDate`,`endDate`,`createdAt`,`totalReadingDays`,`currentReadingStartDate`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `books` (`id`,`name`,`author`,`author1`,`author2`,`author3`,`author4`,`author5`,`category`,`ranking`,`hasBook`,`status`,`startDate`,`endDate`,`createdAt`,`totalReadingDays`,`currentReadingStartDate`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -70,40 +70,65 @@ public final class BookDao_Impl implements BookDao {
         statement.bindLong(1, entity.getId());
         statement.bindString(2, entity.getName());
         statement.bindString(3, entity.getAuthor());
-        statement.bindString(4, entity.getCategory());
-        statement.bindLong(5, entity.getRanking());
-        final int _tmp = entity.getHasBook() ? 1 : 0;
-        statement.bindLong(6, _tmp);
-        final String _tmp_1 = __dateConverters.fromBookStatus(entity.getStatus());
-        if (_tmp_1 == null) {
+        if (entity.getAuthor1() == null) {
+          statement.bindNull(4);
+        } else {
+          statement.bindString(4, entity.getAuthor1());
+        }
+        if (entity.getAuthor2() == null) {
+          statement.bindNull(5);
+        } else {
+          statement.bindString(5, entity.getAuthor2());
+        }
+        if (entity.getAuthor3() == null) {
+          statement.bindNull(6);
+        } else {
+          statement.bindString(6, entity.getAuthor3());
+        }
+        if (entity.getAuthor4() == null) {
           statement.bindNull(7);
         } else {
-          statement.bindString(7, _tmp_1);
+          statement.bindString(7, entity.getAuthor4());
+        }
+        if (entity.getAuthor5() == null) {
+          statement.bindNull(8);
+        } else {
+          statement.bindString(8, entity.getAuthor5());
+        }
+        statement.bindString(9, entity.getCategory());
+        statement.bindLong(10, entity.getRanking());
+        final int _tmp = entity.getHasBook() ? 1 : 0;
+        statement.bindLong(11, _tmp);
+        final String _tmp_1 = __dateConverters.fromBookStatus(entity.getStatus());
+        if (_tmp_1 == null) {
+          statement.bindNull(12);
+        } else {
+          statement.bindString(12, _tmp_1);
         }
         final Long _tmp_2 = __dateConverters.dateToTimestamp(entity.getStartDate());
         if (_tmp_2 == null) {
-          statement.bindNull(8);
+          statement.bindNull(13);
         } else {
-          statement.bindLong(8, _tmp_2);
+          statement.bindLong(13, _tmp_2);
         }
         final Long _tmp_3 = __dateConverters.dateToTimestamp(entity.getEndDate());
         if (_tmp_3 == null) {
-          statement.bindNull(9);
+          statement.bindNull(14);
         } else {
-          statement.bindLong(9, _tmp_3);
+          statement.bindLong(14, _tmp_3);
         }
         final Long _tmp_4 = __dateConverters.dateToTimestamp(entity.getCreatedAt());
         if (_tmp_4 == null) {
-          statement.bindNull(10);
+          statement.bindNull(15);
         } else {
-          statement.bindLong(10, _tmp_4);
+          statement.bindLong(15, _tmp_4);
         }
-        statement.bindLong(11, entity.getTotalReadingDays());
+        statement.bindLong(16, entity.getTotalReadingDays());
         final Long _tmp_5 = __dateConverters.dateToTimestamp(entity.getCurrentReadingStartDate());
         if (_tmp_5 == null) {
-          statement.bindNull(12);
+          statement.bindNull(17);
         } else {
-          statement.bindLong(12, _tmp_5);
+          statement.bindLong(17, _tmp_5);
         }
       }
     };
@@ -124,7 +149,7 @@ public final class BookDao_Impl implements BookDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "UPDATE OR ABORT `books` SET `id` = ?,`name` = ?,`author` = ?,`category` = ?,`ranking` = ?,`hasBook` = ?,`status` = ?,`startDate` = ?,`endDate` = ?,`createdAt` = ?,`totalReadingDays` = ?,`currentReadingStartDate` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `books` SET `id` = ?,`name` = ?,`author` = ?,`author1` = ?,`author2` = ?,`author3` = ?,`author4` = ?,`author5` = ?,`category` = ?,`ranking` = ?,`hasBook` = ?,`status` = ?,`startDate` = ?,`endDate` = ?,`createdAt` = ?,`totalReadingDays` = ?,`currentReadingStartDate` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -133,42 +158,67 @@ public final class BookDao_Impl implements BookDao {
         statement.bindLong(1, entity.getId());
         statement.bindString(2, entity.getName());
         statement.bindString(3, entity.getAuthor());
-        statement.bindString(4, entity.getCategory());
-        statement.bindLong(5, entity.getRanking());
-        final int _tmp = entity.getHasBook() ? 1 : 0;
-        statement.bindLong(6, _tmp);
-        final String _tmp_1 = __dateConverters.fromBookStatus(entity.getStatus());
-        if (_tmp_1 == null) {
+        if (entity.getAuthor1() == null) {
+          statement.bindNull(4);
+        } else {
+          statement.bindString(4, entity.getAuthor1());
+        }
+        if (entity.getAuthor2() == null) {
+          statement.bindNull(5);
+        } else {
+          statement.bindString(5, entity.getAuthor2());
+        }
+        if (entity.getAuthor3() == null) {
+          statement.bindNull(6);
+        } else {
+          statement.bindString(6, entity.getAuthor3());
+        }
+        if (entity.getAuthor4() == null) {
           statement.bindNull(7);
         } else {
-          statement.bindString(7, _tmp_1);
+          statement.bindString(7, entity.getAuthor4());
+        }
+        if (entity.getAuthor5() == null) {
+          statement.bindNull(8);
+        } else {
+          statement.bindString(8, entity.getAuthor5());
+        }
+        statement.bindString(9, entity.getCategory());
+        statement.bindLong(10, entity.getRanking());
+        final int _tmp = entity.getHasBook() ? 1 : 0;
+        statement.bindLong(11, _tmp);
+        final String _tmp_1 = __dateConverters.fromBookStatus(entity.getStatus());
+        if (_tmp_1 == null) {
+          statement.bindNull(12);
+        } else {
+          statement.bindString(12, _tmp_1);
         }
         final Long _tmp_2 = __dateConverters.dateToTimestamp(entity.getStartDate());
         if (_tmp_2 == null) {
-          statement.bindNull(8);
+          statement.bindNull(13);
         } else {
-          statement.bindLong(8, _tmp_2);
+          statement.bindLong(13, _tmp_2);
         }
         final Long _tmp_3 = __dateConverters.dateToTimestamp(entity.getEndDate());
         if (_tmp_3 == null) {
-          statement.bindNull(9);
+          statement.bindNull(14);
         } else {
-          statement.bindLong(9, _tmp_3);
+          statement.bindLong(14, _tmp_3);
         }
         final Long _tmp_4 = __dateConverters.dateToTimestamp(entity.getCreatedAt());
         if (_tmp_4 == null) {
-          statement.bindNull(10);
+          statement.bindNull(15);
         } else {
-          statement.bindLong(10, _tmp_4);
+          statement.bindLong(15, _tmp_4);
         }
-        statement.bindLong(11, entity.getTotalReadingDays());
+        statement.bindLong(16, entity.getTotalReadingDays());
         final Long _tmp_5 = __dateConverters.dateToTimestamp(entity.getCurrentReadingStartDate());
         if (_tmp_5 == null) {
-          statement.bindNull(12);
+          statement.bindNull(17);
         } else {
-          statement.bindLong(12, _tmp_5);
+          statement.bindLong(17, _tmp_5);
         }
-        statement.bindLong(13, entity.getId());
+        statement.bindLong(18, entity.getId());
       }
     };
     this.__preparedStmtOfUpdateBookStatus = new SharedSQLiteStatement(__db) {
@@ -463,6 +513,11 @@ public final class BookDao_Impl implements BookDao {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
           final int _cursorIndexOfAuthor = CursorUtil.getColumnIndexOrThrow(_cursor, "author");
+          final int _cursorIndexOfAuthor1 = CursorUtil.getColumnIndexOrThrow(_cursor, "author1");
+          final int _cursorIndexOfAuthor2 = CursorUtil.getColumnIndexOrThrow(_cursor, "author2");
+          final int _cursorIndexOfAuthor3 = CursorUtil.getColumnIndexOrThrow(_cursor, "author3");
+          final int _cursorIndexOfAuthor4 = CursorUtil.getColumnIndexOrThrow(_cursor, "author4");
+          final int _cursorIndexOfAuthor5 = CursorUtil.getColumnIndexOrThrow(_cursor, "author5");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfRanking = CursorUtil.getColumnIndexOrThrow(_cursor, "ranking");
           final int _cursorIndexOfHasBook = CursorUtil.getColumnIndexOrThrow(_cursor, "hasBook");
@@ -481,6 +536,36 @@ public final class BookDao_Impl implements BookDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final String _tmpAuthor;
             _tmpAuthor = _cursor.getString(_cursorIndexOfAuthor);
+            final String _tmpAuthor1;
+            if (_cursor.isNull(_cursorIndexOfAuthor1)) {
+              _tmpAuthor1 = null;
+            } else {
+              _tmpAuthor1 = _cursor.getString(_cursorIndexOfAuthor1);
+            }
+            final String _tmpAuthor2;
+            if (_cursor.isNull(_cursorIndexOfAuthor2)) {
+              _tmpAuthor2 = null;
+            } else {
+              _tmpAuthor2 = _cursor.getString(_cursorIndexOfAuthor2);
+            }
+            final String _tmpAuthor3;
+            if (_cursor.isNull(_cursorIndexOfAuthor3)) {
+              _tmpAuthor3 = null;
+            } else {
+              _tmpAuthor3 = _cursor.getString(_cursorIndexOfAuthor3);
+            }
+            final String _tmpAuthor4;
+            if (_cursor.isNull(_cursorIndexOfAuthor4)) {
+              _tmpAuthor4 = null;
+            } else {
+              _tmpAuthor4 = _cursor.getString(_cursorIndexOfAuthor4);
+            }
+            final String _tmpAuthor5;
+            if (_cursor.isNull(_cursorIndexOfAuthor5)) {
+              _tmpAuthor5 = null;
+            } else {
+              _tmpAuthor5 = _cursor.getString(_cursorIndexOfAuthor5);
+            }
             final String _tmpCategory;
             _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
             final int _tmpRanking;
@@ -541,7 +626,7 @@ public final class BookDao_Impl implements BookDao {
               _tmp_7 = _cursor.getLong(_cursorIndexOfCurrentReadingStartDate);
             }
             _tmpCurrentReadingStartDate = __dateConverters.fromTimestamp(_tmp_7);
-            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
+            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpAuthor1,_tmpAuthor2,_tmpAuthor3,_tmpAuthor4,_tmpAuthor5,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
             _result.add(_item);
           }
           return _result;
@@ -570,6 +655,11 @@ public final class BookDao_Impl implements BookDao {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
           final int _cursorIndexOfAuthor = CursorUtil.getColumnIndexOrThrow(_cursor, "author");
+          final int _cursorIndexOfAuthor1 = CursorUtil.getColumnIndexOrThrow(_cursor, "author1");
+          final int _cursorIndexOfAuthor2 = CursorUtil.getColumnIndexOrThrow(_cursor, "author2");
+          final int _cursorIndexOfAuthor3 = CursorUtil.getColumnIndexOrThrow(_cursor, "author3");
+          final int _cursorIndexOfAuthor4 = CursorUtil.getColumnIndexOrThrow(_cursor, "author4");
+          final int _cursorIndexOfAuthor5 = CursorUtil.getColumnIndexOrThrow(_cursor, "author5");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfRanking = CursorUtil.getColumnIndexOrThrow(_cursor, "ranking");
           final int _cursorIndexOfHasBook = CursorUtil.getColumnIndexOrThrow(_cursor, "hasBook");
@@ -588,6 +678,36 @@ public final class BookDao_Impl implements BookDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final String _tmpAuthor;
             _tmpAuthor = _cursor.getString(_cursorIndexOfAuthor);
+            final String _tmpAuthor1;
+            if (_cursor.isNull(_cursorIndexOfAuthor1)) {
+              _tmpAuthor1 = null;
+            } else {
+              _tmpAuthor1 = _cursor.getString(_cursorIndexOfAuthor1);
+            }
+            final String _tmpAuthor2;
+            if (_cursor.isNull(_cursorIndexOfAuthor2)) {
+              _tmpAuthor2 = null;
+            } else {
+              _tmpAuthor2 = _cursor.getString(_cursorIndexOfAuthor2);
+            }
+            final String _tmpAuthor3;
+            if (_cursor.isNull(_cursorIndexOfAuthor3)) {
+              _tmpAuthor3 = null;
+            } else {
+              _tmpAuthor3 = _cursor.getString(_cursorIndexOfAuthor3);
+            }
+            final String _tmpAuthor4;
+            if (_cursor.isNull(_cursorIndexOfAuthor4)) {
+              _tmpAuthor4 = null;
+            } else {
+              _tmpAuthor4 = _cursor.getString(_cursorIndexOfAuthor4);
+            }
+            final String _tmpAuthor5;
+            if (_cursor.isNull(_cursorIndexOfAuthor5)) {
+              _tmpAuthor5 = null;
+            } else {
+              _tmpAuthor5 = _cursor.getString(_cursorIndexOfAuthor5);
+            }
             final String _tmpCategory;
             _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
             final int _tmpRanking;
@@ -648,7 +768,7 @@ public final class BookDao_Impl implements BookDao {
               _tmp_7 = _cursor.getLong(_cursorIndexOfCurrentReadingStartDate);
             }
             _tmpCurrentReadingStartDate = __dateConverters.fromTimestamp(_tmp_7);
-            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
+            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpAuthor1,_tmpAuthor2,_tmpAuthor3,_tmpAuthor4,_tmpAuthor5,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
             _result.add(_item);
           }
           return _result;
@@ -677,6 +797,11 @@ public final class BookDao_Impl implements BookDao {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
           final int _cursorIndexOfAuthor = CursorUtil.getColumnIndexOrThrow(_cursor, "author");
+          final int _cursorIndexOfAuthor1 = CursorUtil.getColumnIndexOrThrow(_cursor, "author1");
+          final int _cursorIndexOfAuthor2 = CursorUtil.getColumnIndexOrThrow(_cursor, "author2");
+          final int _cursorIndexOfAuthor3 = CursorUtil.getColumnIndexOrThrow(_cursor, "author3");
+          final int _cursorIndexOfAuthor4 = CursorUtil.getColumnIndexOrThrow(_cursor, "author4");
+          final int _cursorIndexOfAuthor5 = CursorUtil.getColumnIndexOrThrow(_cursor, "author5");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfRanking = CursorUtil.getColumnIndexOrThrow(_cursor, "ranking");
           final int _cursorIndexOfHasBook = CursorUtil.getColumnIndexOrThrow(_cursor, "hasBook");
@@ -695,6 +820,36 @@ public final class BookDao_Impl implements BookDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final String _tmpAuthor;
             _tmpAuthor = _cursor.getString(_cursorIndexOfAuthor);
+            final String _tmpAuthor1;
+            if (_cursor.isNull(_cursorIndexOfAuthor1)) {
+              _tmpAuthor1 = null;
+            } else {
+              _tmpAuthor1 = _cursor.getString(_cursorIndexOfAuthor1);
+            }
+            final String _tmpAuthor2;
+            if (_cursor.isNull(_cursorIndexOfAuthor2)) {
+              _tmpAuthor2 = null;
+            } else {
+              _tmpAuthor2 = _cursor.getString(_cursorIndexOfAuthor2);
+            }
+            final String _tmpAuthor3;
+            if (_cursor.isNull(_cursorIndexOfAuthor3)) {
+              _tmpAuthor3 = null;
+            } else {
+              _tmpAuthor3 = _cursor.getString(_cursorIndexOfAuthor3);
+            }
+            final String _tmpAuthor4;
+            if (_cursor.isNull(_cursorIndexOfAuthor4)) {
+              _tmpAuthor4 = null;
+            } else {
+              _tmpAuthor4 = _cursor.getString(_cursorIndexOfAuthor4);
+            }
+            final String _tmpAuthor5;
+            if (_cursor.isNull(_cursorIndexOfAuthor5)) {
+              _tmpAuthor5 = null;
+            } else {
+              _tmpAuthor5 = _cursor.getString(_cursorIndexOfAuthor5);
+            }
             final String _tmpCategory;
             _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
             final int _tmpRanking;
@@ -755,7 +910,7 @@ public final class BookDao_Impl implements BookDao {
               _tmp_7 = _cursor.getLong(_cursorIndexOfCurrentReadingStartDate);
             }
             _tmpCurrentReadingStartDate = __dateConverters.fromTimestamp(_tmp_7);
-            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
+            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpAuthor1,_tmpAuthor2,_tmpAuthor3,_tmpAuthor4,_tmpAuthor5,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
             _result.add(_item);
           }
           return _result;
@@ -773,9 +928,16 @@ public final class BookDao_Impl implements BookDao {
 
   @Override
   public Object getBooksToReadFiltered(final String author, final String category,
-      final Continuation<? super List<Book>> $completion) {
-    final String _sql = "SELECT * FROM books WHERE status != 'COMPLETED' AND (? IS NULL OR author = ?) AND (? IS NULL OR category = ?)";
-    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 4);
+      final String titleSearch, final Continuation<? super List<Book>> $completion) {
+    final String _sql = "\n"
+            + "        SELECT * FROM books \n"
+            + "        WHERE status != 'COMPLETED' \n"
+            + "        AND (? IS NULL OR ? = '' OR \n"
+            + "             author1 = ? OR author2 = ? OR author3 = ? OR author4 = ? OR author5 = ?)\n"
+            + "        AND (? IS NULL OR ? = '' OR category = ?)\n"
+            + "        AND (? IS NULL OR ? = '' OR LOWER(name) LIKE '%' || LOWER(?) || '%')\n"
+            + "    ";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 13);
     int _argIndex = 1;
     if (author == null) {
       _statement.bindNull(_argIndex);
@@ -789,16 +951,70 @@ public final class BookDao_Impl implements BookDao {
       _statement.bindString(_argIndex, author);
     }
     _argIndex = 3;
+    if (author == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, author);
+    }
+    _argIndex = 4;
+    if (author == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, author);
+    }
+    _argIndex = 5;
+    if (author == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, author);
+    }
+    _argIndex = 6;
+    if (author == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, author);
+    }
+    _argIndex = 7;
+    if (author == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, author);
+    }
+    _argIndex = 8;
     if (category == null) {
       _statement.bindNull(_argIndex);
     } else {
       _statement.bindString(_argIndex, category);
     }
-    _argIndex = 4;
+    _argIndex = 9;
     if (category == null) {
       _statement.bindNull(_argIndex);
     } else {
       _statement.bindString(_argIndex, category);
+    }
+    _argIndex = 10;
+    if (category == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, category);
+    }
+    _argIndex = 11;
+    if (titleSearch == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, titleSearch);
+    }
+    _argIndex = 12;
+    if (titleSearch == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, titleSearch);
+    }
+    _argIndex = 13;
+    if (titleSearch == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, titleSearch);
     }
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
     return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<Book>>() {
@@ -810,6 +1026,11 @@ public final class BookDao_Impl implements BookDao {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
           final int _cursorIndexOfAuthor = CursorUtil.getColumnIndexOrThrow(_cursor, "author");
+          final int _cursorIndexOfAuthor1 = CursorUtil.getColumnIndexOrThrow(_cursor, "author1");
+          final int _cursorIndexOfAuthor2 = CursorUtil.getColumnIndexOrThrow(_cursor, "author2");
+          final int _cursorIndexOfAuthor3 = CursorUtil.getColumnIndexOrThrow(_cursor, "author3");
+          final int _cursorIndexOfAuthor4 = CursorUtil.getColumnIndexOrThrow(_cursor, "author4");
+          final int _cursorIndexOfAuthor5 = CursorUtil.getColumnIndexOrThrow(_cursor, "author5");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfRanking = CursorUtil.getColumnIndexOrThrow(_cursor, "ranking");
           final int _cursorIndexOfHasBook = CursorUtil.getColumnIndexOrThrow(_cursor, "hasBook");
@@ -828,6 +1049,36 @@ public final class BookDao_Impl implements BookDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final String _tmpAuthor;
             _tmpAuthor = _cursor.getString(_cursorIndexOfAuthor);
+            final String _tmpAuthor1;
+            if (_cursor.isNull(_cursorIndexOfAuthor1)) {
+              _tmpAuthor1 = null;
+            } else {
+              _tmpAuthor1 = _cursor.getString(_cursorIndexOfAuthor1);
+            }
+            final String _tmpAuthor2;
+            if (_cursor.isNull(_cursorIndexOfAuthor2)) {
+              _tmpAuthor2 = null;
+            } else {
+              _tmpAuthor2 = _cursor.getString(_cursorIndexOfAuthor2);
+            }
+            final String _tmpAuthor3;
+            if (_cursor.isNull(_cursorIndexOfAuthor3)) {
+              _tmpAuthor3 = null;
+            } else {
+              _tmpAuthor3 = _cursor.getString(_cursorIndexOfAuthor3);
+            }
+            final String _tmpAuthor4;
+            if (_cursor.isNull(_cursorIndexOfAuthor4)) {
+              _tmpAuthor4 = null;
+            } else {
+              _tmpAuthor4 = _cursor.getString(_cursorIndexOfAuthor4);
+            }
+            final String _tmpAuthor5;
+            if (_cursor.isNull(_cursorIndexOfAuthor5)) {
+              _tmpAuthor5 = null;
+            } else {
+              _tmpAuthor5 = _cursor.getString(_cursorIndexOfAuthor5);
+            }
             final String _tmpCategory;
             _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
             final int _tmpRanking;
@@ -888,7 +1139,7 @@ public final class BookDao_Impl implements BookDao {
               _tmp_7 = _cursor.getLong(_cursorIndexOfCurrentReadingStartDate);
             }
             _tmpCurrentReadingStartDate = __dateConverters.fromTimestamp(_tmp_7);
-            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
+            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpAuthor1,_tmpAuthor2,_tmpAuthor3,_tmpAuthor4,_tmpAuthor5,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
             _result.add(_item);
           }
           return _result;
@@ -916,6 +1167,11 @@ public final class BookDao_Impl implements BookDao {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
           final int _cursorIndexOfAuthor = CursorUtil.getColumnIndexOrThrow(_cursor, "author");
+          final int _cursorIndexOfAuthor1 = CursorUtil.getColumnIndexOrThrow(_cursor, "author1");
+          final int _cursorIndexOfAuthor2 = CursorUtil.getColumnIndexOrThrow(_cursor, "author2");
+          final int _cursorIndexOfAuthor3 = CursorUtil.getColumnIndexOrThrow(_cursor, "author3");
+          final int _cursorIndexOfAuthor4 = CursorUtil.getColumnIndexOrThrow(_cursor, "author4");
+          final int _cursorIndexOfAuthor5 = CursorUtil.getColumnIndexOrThrow(_cursor, "author5");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfRanking = CursorUtil.getColumnIndexOrThrow(_cursor, "ranking");
           final int _cursorIndexOfHasBook = CursorUtil.getColumnIndexOrThrow(_cursor, "hasBook");
@@ -933,6 +1189,36 @@ public final class BookDao_Impl implements BookDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final String _tmpAuthor;
             _tmpAuthor = _cursor.getString(_cursorIndexOfAuthor);
+            final String _tmpAuthor1;
+            if (_cursor.isNull(_cursorIndexOfAuthor1)) {
+              _tmpAuthor1 = null;
+            } else {
+              _tmpAuthor1 = _cursor.getString(_cursorIndexOfAuthor1);
+            }
+            final String _tmpAuthor2;
+            if (_cursor.isNull(_cursorIndexOfAuthor2)) {
+              _tmpAuthor2 = null;
+            } else {
+              _tmpAuthor2 = _cursor.getString(_cursorIndexOfAuthor2);
+            }
+            final String _tmpAuthor3;
+            if (_cursor.isNull(_cursorIndexOfAuthor3)) {
+              _tmpAuthor3 = null;
+            } else {
+              _tmpAuthor3 = _cursor.getString(_cursorIndexOfAuthor3);
+            }
+            final String _tmpAuthor4;
+            if (_cursor.isNull(_cursorIndexOfAuthor4)) {
+              _tmpAuthor4 = null;
+            } else {
+              _tmpAuthor4 = _cursor.getString(_cursorIndexOfAuthor4);
+            }
+            final String _tmpAuthor5;
+            if (_cursor.isNull(_cursorIndexOfAuthor5)) {
+              _tmpAuthor5 = null;
+            } else {
+              _tmpAuthor5 = _cursor.getString(_cursorIndexOfAuthor5);
+            }
             final String _tmpCategory;
             _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
             final int _tmpRanking;
@@ -993,7 +1279,7 @@ public final class BookDao_Impl implements BookDao {
               _tmp_7 = _cursor.getLong(_cursorIndexOfCurrentReadingStartDate);
             }
             _tmpCurrentReadingStartDate = __dateConverters.fromTimestamp(_tmp_7);
-            _result = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
+            _result = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpAuthor1,_tmpAuthor2,_tmpAuthor3,_tmpAuthor4,_tmpAuthor5,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
           } else {
             _result = null;
           }
@@ -1082,6 +1368,11 @@ public final class BookDao_Impl implements BookDao {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
           final int _cursorIndexOfAuthor = CursorUtil.getColumnIndexOrThrow(_cursor, "author");
+          final int _cursorIndexOfAuthor1 = CursorUtil.getColumnIndexOrThrow(_cursor, "author1");
+          final int _cursorIndexOfAuthor2 = CursorUtil.getColumnIndexOrThrow(_cursor, "author2");
+          final int _cursorIndexOfAuthor3 = CursorUtil.getColumnIndexOrThrow(_cursor, "author3");
+          final int _cursorIndexOfAuthor4 = CursorUtil.getColumnIndexOrThrow(_cursor, "author4");
+          final int _cursorIndexOfAuthor5 = CursorUtil.getColumnIndexOrThrow(_cursor, "author5");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfRanking = CursorUtil.getColumnIndexOrThrow(_cursor, "ranking");
           final int _cursorIndexOfHasBook = CursorUtil.getColumnIndexOrThrow(_cursor, "hasBook");
@@ -1100,6 +1391,36 @@ public final class BookDao_Impl implements BookDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final String _tmpAuthor;
             _tmpAuthor = _cursor.getString(_cursorIndexOfAuthor);
+            final String _tmpAuthor1;
+            if (_cursor.isNull(_cursorIndexOfAuthor1)) {
+              _tmpAuthor1 = null;
+            } else {
+              _tmpAuthor1 = _cursor.getString(_cursorIndexOfAuthor1);
+            }
+            final String _tmpAuthor2;
+            if (_cursor.isNull(_cursorIndexOfAuthor2)) {
+              _tmpAuthor2 = null;
+            } else {
+              _tmpAuthor2 = _cursor.getString(_cursorIndexOfAuthor2);
+            }
+            final String _tmpAuthor3;
+            if (_cursor.isNull(_cursorIndexOfAuthor3)) {
+              _tmpAuthor3 = null;
+            } else {
+              _tmpAuthor3 = _cursor.getString(_cursorIndexOfAuthor3);
+            }
+            final String _tmpAuthor4;
+            if (_cursor.isNull(_cursorIndexOfAuthor4)) {
+              _tmpAuthor4 = null;
+            } else {
+              _tmpAuthor4 = _cursor.getString(_cursorIndexOfAuthor4);
+            }
+            final String _tmpAuthor5;
+            if (_cursor.isNull(_cursorIndexOfAuthor5)) {
+              _tmpAuthor5 = null;
+            } else {
+              _tmpAuthor5 = _cursor.getString(_cursorIndexOfAuthor5);
+            }
             final String _tmpCategory;
             _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
             final int _tmpRanking;
@@ -1160,7 +1481,7 @@ public final class BookDao_Impl implements BookDao {
               _tmp_7 = _cursor.getLong(_cursorIndexOfCurrentReadingStartDate);
             }
             _tmpCurrentReadingStartDate = __dateConverters.fromTimestamp(_tmp_7);
-            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
+            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpAuthor1,_tmpAuthor2,_tmpAuthor3,_tmpAuthor4,_tmpAuthor5,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
             _result.add(_item);
           }
           return _result;
@@ -1186,6 +1507,11 @@ public final class BookDao_Impl implements BookDao {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
           final int _cursorIndexOfAuthor = CursorUtil.getColumnIndexOrThrow(_cursor, "author");
+          final int _cursorIndexOfAuthor1 = CursorUtil.getColumnIndexOrThrow(_cursor, "author1");
+          final int _cursorIndexOfAuthor2 = CursorUtil.getColumnIndexOrThrow(_cursor, "author2");
+          final int _cursorIndexOfAuthor3 = CursorUtil.getColumnIndexOrThrow(_cursor, "author3");
+          final int _cursorIndexOfAuthor4 = CursorUtil.getColumnIndexOrThrow(_cursor, "author4");
+          final int _cursorIndexOfAuthor5 = CursorUtil.getColumnIndexOrThrow(_cursor, "author5");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfRanking = CursorUtil.getColumnIndexOrThrow(_cursor, "ranking");
           final int _cursorIndexOfHasBook = CursorUtil.getColumnIndexOrThrow(_cursor, "hasBook");
@@ -1204,6 +1530,36 @@ public final class BookDao_Impl implements BookDao {
             _tmpName = _cursor.getString(_cursorIndexOfName);
             final String _tmpAuthor;
             _tmpAuthor = _cursor.getString(_cursorIndexOfAuthor);
+            final String _tmpAuthor1;
+            if (_cursor.isNull(_cursorIndexOfAuthor1)) {
+              _tmpAuthor1 = null;
+            } else {
+              _tmpAuthor1 = _cursor.getString(_cursorIndexOfAuthor1);
+            }
+            final String _tmpAuthor2;
+            if (_cursor.isNull(_cursorIndexOfAuthor2)) {
+              _tmpAuthor2 = null;
+            } else {
+              _tmpAuthor2 = _cursor.getString(_cursorIndexOfAuthor2);
+            }
+            final String _tmpAuthor3;
+            if (_cursor.isNull(_cursorIndexOfAuthor3)) {
+              _tmpAuthor3 = null;
+            } else {
+              _tmpAuthor3 = _cursor.getString(_cursorIndexOfAuthor3);
+            }
+            final String _tmpAuthor4;
+            if (_cursor.isNull(_cursorIndexOfAuthor4)) {
+              _tmpAuthor4 = null;
+            } else {
+              _tmpAuthor4 = _cursor.getString(_cursorIndexOfAuthor4);
+            }
+            final String _tmpAuthor5;
+            if (_cursor.isNull(_cursorIndexOfAuthor5)) {
+              _tmpAuthor5 = null;
+            } else {
+              _tmpAuthor5 = _cursor.getString(_cursorIndexOfAuthor5);
+            }
             final String _tmpCategory;
             _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
             final int _tmpRanking;
@@ -1264,7 +1620,7 @@ public final class BookDao_Impl implements BookDao {
               _tmp_7 = _cursor.getLong(_cursorIndexOfCurrentReadingStartDate);
             }
             _tmpCurrentReadingStartDate = __dateConverters.fromTimestamp(_tmp_7);
-            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
+            _item = new Book(_tmpId,_tmpName,_tmpAuthor,_tmpAuthor1,_tmpAuthor2,_tmpAuthor3,_tmpAuthor4,_tmpAuthor5,_tmpCategory,_tmpRanking,_tmpHasBook,_tmpStatus,_tmpStartDate,_tmpEndDate,_tmpCreatedAt,_tmpTotalReadingDays,_tmpCurrentReadingStartDate);
             _result.add(_item);
           }
           return _result;
@@ -1293,6 +1649,77 @@ public final class BookDao_Impl implements BookDao {
             _result = _tmp;
           } else {
             _result = 0;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
+  }
+
+  @Override
+  public Flow<List<String>> getAllAuthors() {
+    final String _sql = "\n"
+            + "        SELECT DISTINCT author FROM (\n"
+            + "            SELECT author1 as author FROM books WHERE status != 'COMPLETED' AND author1 IS NOT NULL AND author1 != ''\n"
+            + "            UNION\n"
+            + "            SELECT author2 as author FROM books WHERE status != 'COMPLETED' AND author2 IS NOT NULL AND author2 != ''\n"
+            + "            UNION\n"
+            + "            SELECT author3 as author FROM books WHERE status != 'COMPLETED' AND author3 IS NOT NULL AND author3 != ''\n"
+            + "            UNION\n"
+            + "            SELECT author4 as author FROM books WHERE status != 'COMPLETED' AND author4 IS NOT NULL AND author4 != ''\n"
+            + "            UNION\n"
+            + "            SELECT author5 as author FROM books WHERE status != 'COMPLETED' AND author5 IS NOT NULL AND author5 != ''\n"
+            + "        ) WHERE author IS NOT NULL AND author != ''\n"
+            + "        ORDER BY author ASC\n"
+            + "    ";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    return CoroutinesRoom.createFlow(__db, false, new String[] {"books"}, new Callable<List<String>>() {
+      @Override
+      @NonNull
+      public List<String> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final List<String> _result = new ArrayList<String>(_cursor.getCount());
+          while (_cursor.moveToNext()) {
+            final String _item;
+            _item = _cursor.getString(0);
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    });
+  }
+
+  @Override
+  public Flow<List<String>> getAllCategoriesForFilter() {
+    final String _sql = "SELECT DISTINCT category FROM books WHERE status != 'COMPLETED'";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    return CoroutinesRoom.createFlow(__db, false, new String[] {"books"}, new Callable<List<String>>() {
+      @Override
+      @NonNull
+      public List<String> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final List<String> _result = new ArrayList<String>(_cursor.getCount());
+          while (_cursor.moveToNext()) {
+            final String _item;
+            _item = _cursor.getString(0);
+            _result.add(_item);
           }
           return _result;
         } finally {

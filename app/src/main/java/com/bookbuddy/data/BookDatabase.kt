@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import java.util.Date
 
-@Database(entities = [Book::class, Category::class], version = 2, exportSchema = false)
+@Database(entities = [Book::class, Category::class], version = 3, exportSchema = false)
 @TypeConverters(DateConverters::class)
 abstract class BookDatabase : RoomDatabase() {
     abstract fun bookDao(): BookDao

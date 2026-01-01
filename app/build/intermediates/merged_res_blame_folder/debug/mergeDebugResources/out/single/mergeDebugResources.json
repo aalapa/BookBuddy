@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/drawable_dropdown_popup_background.xml.flat",
+        "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/drawable/dropdown_popup_background.xml"
+    },
+    {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/drawable_ic_launcher.xml.flat",
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/drawable/ic_launcher.xml"
     },
@@ -12,10 +16,6 @@
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/mipmap-xxxhdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.bookbuddy.app-debug-53:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.bookbuddy.app-main-55:/mipmap-anydpi-v26/ic_launcher_round.xml"
-    },
-    {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/layout_activity_main.xml.flat",
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/layout/activity_main.xml"
     },
@@ -24,16 +24,20 @@
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/menu/nav_menu.xml"
     },
     {
-        "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/mipmap-xxxhdpi_ic_launcher.xml.flat",
-        "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/mipmap-xxxhdpi/ic_launcher.xml"
+        "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/drawable_dropdown_item_background.xml.flat",
+        "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/drawable/dropdown_item_background.xml"
+    },
+    {
+        "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/layout_fragment_add_edit_book.xml.flat",
+        "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/layout/fragment_add_edit_book.xml"
     },
     {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/menu_bottom_navigation_menu.xml.flat",
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/menu/bottom_navigation_menu.xml"
     },
     {
-        "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/layout_fragment_add_edit_book.xml.flat",
-        "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/layout/fragment_add_edit_book.xml"
+        "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/mipmap-xxxhdpi_ic_launcher.xml.flat",
+        "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/mipmap-xxxhdpi/ic_launcher.xml"
     },
     {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/drawable_ic_checkmark_circle.xml.flat",
@@ -48,8 +52,16 @@
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/mipmap-xhdpi/ic_launcher.xml"
     },
     {
+        "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/drawable_ic_menu_hamburger.xml.flat",
+        "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/drawable/ic_menu_hamburger.xml"
+    },
+    {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/mipmap-mdpi_ic_launcher.xml.flat",
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/mipmap-mdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.bookbuddy.app-debug-53:/color_bottom_nav_icon_color.xml.flat",
+        "source": "com.bookbuddy.app-main-55:/color/bottom_nav_icon_color.xml"
     },
     {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/drawable_ic_launcher_round.xml.flat",
@@ -80,8 +92,8 @@
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/drawable/progress_bar_reading.xml"
     },
     {
-        "merged": "com.bookbuddy.app-debug-53:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.bookbuddy.app-main-55:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.bookbuddy.app-debug-53:/layout_activity_main.xml.flat",
+        "source": "com.bookbuddy.app-main-55:/layout/activity_main.xml"
     },
     {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/drawable_ic_book_not_owned.xml.flat",
@@ -96,10 +108,6 @@
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/layout/fragment_dashboard.xml"
     },
     {
-        "merged": "com.bookbuddy.app-debug-53:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.bookbuddy.app-main-55:/drawable/ic_launcher_foreground.xml"
-    },
-    {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/mipmap-xhdpi_ic_launcher_round.xml.flat",
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/mipmap-xhdpi/ic_launcher_round.xml"
     },
@@ -112,12 +120,20 @@
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/mipmap-xxhdpi/ic_launcher_round.xml"
     },
     {
+        "merged": "com.bookbuddy.app-debug-53:/color_bottom_nav_text_color.xml.flat",
+        "source": "com.bookbuddy.app-main-55:/color/bottom_nav_text_color.xml"
+    },
+    {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/drawable_ic_launcher_foreground.xml.flat",
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/drawable/ic_launcher_foreground.xml"
     },
     {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/layout_nav_header.xml.flat",
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/layout/nav_header.xml"
+    },
+    {
+        "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/layout_dropdown_item_filter.xml.flat",
+        "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/layout/dropdown_item_filter.xml"
     },
     {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-debug-53:/mipmap-hdpi_ic_launcher.xml.flat",

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import androidx.viewbinding.ViewBindings;
 import com.bookbuddy.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -39,10 +41,16 @@ public final class FragmentBooksToReadBinding implements ViewBinding {
   public final TextView emptyStateText;
 
   @NonNull
+  public final TextInputEditText etSearch;
+
+  @NonNull
   public final FloatingActionButton fabAddBook;
 
   @NonNull
   public final LinearLayout filterBar;
+
+  @NonNull
+  public final ImageView ivSearchIcon;
 
   @NonNull
   public final RecyclerView recyclerView;
@@ -54,25 +62,32 @@ public final class FragmentBooksToReadBinding implements ViewBinding {
   public final TextInputLayout tilCategoryFilter;
 
   @NonNull
+  public final TextInputLayout tilSearch;
+
+  @NonNull
   public final Toolbar toolbar;
 
   private FragmentBooksToReadBinding(@NonNull CoordinatorLayout rootView,
       @NonNull AutoCompleteTextView actvAuthorFilter,
       @NonNull AutoCompleteTextView actvCategoryFilter, @NonNull MaterialButton btnSort,
-      @NonNull TextView emptyStateText, @NonNull FloatingActionButton fabAddBook,
-      @NonNull LinearLayout filterBar, @NonNull RecyclerView recyclerView,
+      @NonNull TextView emptyStateText, @NonNull TextInputEditText etSearch,
+      @NonNull FloatingActionButton fabAddBook, @NonNull LinearLayout filterBar,
+      @NonNull ImageView ivSearchIcon, @NonNull RecyclerView recyclerView,
       @NonNull TextInputLayout tilAuthorFilter, @NonNull TextInputLayout tilCategoryFilter,
-      @NonNull Toolbar toolbar) {
+      @NonNull TextInputLayout tilSearch, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.actvAuthorFilter = actvAuthorFilter;
     this.actvCategoryFilter = actvCategoryFilter;
     this.btnSort = btnSort;
     this.emptyStateText = emptyStateText;
+    this.etSearch = etSearch;
     this.fabAddBook = fabAddBook;
     this.filterBar = filterBar;
+    this.ivSearchIcon = ivSearchIcon;
     this.recyclerView = recyclerView;
     this.tilAuthorFilter = tilAuthorFilter;
     this.tilCategoryFilter = tilCategoryFilter;
+    this.tilSearch = tilSearch;
     this.toolbar = toolbar;
   }
 
@@ -127,6 +142,12 @@ public final class FragmentBooksToReadBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.etSearch;
+      TextInputEditText etSearch = ViewBindings.findChildViewById(rootView, id);
+      if (etSearch == null) {
+        break missingId;
+      }
+
       id = R.id.fabAddBook;
       FloatingActionButton fabAddBook = ViewBindings.findChildViewById(rootView, id);
       if (fabAddBook == null) {
@@ -136,6 +157,12 @@ public final class FragmentBooksToReadBinding implements ViewBinding {
       id = R.id.filterBar;
       LinearLayout filterBar = ViewBindings.findChildViewById(rootView, id);
       if (filterBar == null) {
+        break missingId;
+      }
+
+      id = R.id.ivSearchIcon;
+      ImageView ivSearchIcon = ViewBindings.findChildViewById(rootView, id);
+      if (ivSearchIcon == null) {
         break missingId;
       }
 
@@ -157,6 +184,12 @@ public final class FragmentBooksToReadBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tilSearch;
+      TextInputLayout tilSearch = ViewBindings.findChildViewById(rootView, id);
+      if (tilSearch == null) {
+        break missingId;
+      }
+
       id = R.id.toolbar;
       Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
       if (toolbar == null) {
@@ -164,8 +197,8 @@ public final class FragmentBooksToReadBinding implements ViewBinding {
       }
 
       return new FragmentBooksToReadBinding((CoordinatorLayout) rootView, actvAuthorFilter,
-          actvCategoryFilter, btnSort, emptyStateText, fabAddBook, filterBar, recyclerView,
-          tilAuthorFilter, tilCategoryFilter, toolbar);
+          actvCategoryFilter, btnSort, emptyStateText, etSearch, fabAddBook, filterBar,
+          ivSearchIcon, recyclerView, tilAuthorFilter, tilCategoryFilter, tilSearch, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -1403,6 +1403,8 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color black
+color bottom_nav_icon_color
+color bottom_nav_text_color
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -3042,6 +3044,8 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dropdown_item_background
+drawable dropdown_popup_background
 drawable ic_arrow_back_black_24
 drawable ic_book_not_owned
 drawable ic_book_owned
@@ -3061,6 +3065,7 @@ drawable ic_launcher_round
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
+drawable ic_menu_hamburger
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -3346,6 +3351,7 @@ id etAuthor
 id etBookName
 id etCategory
 id etRanking
+id etSearch
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3401,6 +3407,7 @@ id item_touch_helper_previous_elevation
 id ivCategory
 id ivDragHandle
 id ivHasBook
+id ivSearchIcon
 id ivStatus
 id jumpToEnd
 id jumpToStart
@@ -3654,6 +3661,7 @@ id textinput_prefix_text
 id textinput_suffix_text
 id tilAuthorFilter
 id tilCategoryFilter
+id tilSearch
 id time
 id title
 id titleDividerNoCustom
@@ -3841,6 +3849,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dropdown_item_filter
 layout fragment_add_edit_book
 layout fragment_already_read
 layout fragment_books_to_read

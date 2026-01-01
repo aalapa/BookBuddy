@@ -43,7 +43,6 @@ class AlreadyReadFragment : Fragment() {
                 onEditClick = { },
                 onMarkInProgressClick = { },
                 onMarkOnHoldClick = { },
-                onMarkCompletedClick = { },
                 showActionButtons = false
             )
 

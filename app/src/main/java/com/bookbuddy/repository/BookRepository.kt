@@ -14,6 +14,8 @@ class BookRepository(
     fun getTotalBooksRead(): Flow<Int> = bookDao.getTotalBooksRead()
     fun getBooksInQueueCount(): Flow<Int> = bookDao.getBooksInQueueCount()
     fun getAllCategories(): Flow<List<Category>> = categoryDao.getAllCategories()
+    fun getAllAuthors(): Flow<List<String>> = bookDao.getAllAuthors()
+    fun getAllCategoriesForFilter(): Flow<List<String>> = bookDao.getAllCategoriesForFilter()
 
     suspend fun getBookById(id: Long): Book? = bookDao.getBookById(id)
     suspend fun insertBook(book: Book): Long = bookDao.insertBook(book)
@@ -91,10 +93,11 @@ class BookRepository(
         return (diffInMillis / (24 * 60 * 60 * 1000)).toInt().coerceAtLeast(0)
     }
 
-    suspend fun getBooksToReadFiltered(author: String?, category: String?, sortBy: String): List<Book> {
+    suspend fun getBooksToReadFiltered(author: String?, category: String?, titleSearch: String?, sortBy: String): List<Book> {
         val books = bookDao.getBooksToReadFiltered(
             if (author.isNullOrBlank()) null else author,
-            if (category.isNullOrBlank()) null else category
+            if (category.isNullOrBlank()) null else category,
+            if (titleSearch.isNullOrBlank()) null else titleSearch
         )
         // Sort the results
         return when (sortBy) {

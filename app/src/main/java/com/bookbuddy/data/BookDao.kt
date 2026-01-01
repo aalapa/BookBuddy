@@ -15,8 +15,15 @@ interface BookDao {
     @Query("SELECT * FROM books WHERE status = 'IN_PROGRESS' ORDER BY startDate DESC")
     fun getInProgressBooks(): Flow<List<Book>>
 
-    @Query("SELECT * FROM books WHERE status != 'COMPLETED' AND (:author IS NULL OR author = :author) AND (:category IS NULL OR category = :category)")
-    suspend fun getBooksToReadFiltered(author: String?, category: String?): List<Book>
+    @Query("""
+        SELECT * FROM books 
+        WHERE status != 'COMPLETED' 
+        AND (:author IS NULL OR :author = '' OR 
+             author1 = :author OR author2 = :author OR author3 = :author OR author4 = :author OR author5 = :author)
+        AND (:category IS NULL OR :category = '' OR category = :category)
+        AND (:titleSearch IS NULL OR :titleSearch = '' OR LOWER(name) LIKE '%' || LOWER(:titleSearch) || '%')
+    """)
+    suspend fun getBooksToReadFiltered(author: String?, category: String?, titleSearch: String?): List<Book>
 
     @Query("SELECT * FROM books WHERE id = :id")
     suspend fun getBookById(id: Long): Book?
@@ -59,5 +66,24 @@ interface BookDao {
 
     @Query("UPDATE books SET ranking = ranking + :increment WHERE ranking >= :fromRanking AND ranking <= :toRanking AND id != :excludeId")
     suspend fun shiftRankings(fromRanking: Int, toRanking: Int, increment: Int, excludeId: Long)
+
+    @Query("""
+        SELECT DISTINCT author FROM (
+            SELECT author1 as author FROM books WHERE status != 'COMPLETED' AND author1 IS NOT NULL AND author1 != ''
+            UNION
+            SELECT author2 as author FROM books WHERE status != 'COMPLETED' AND author2 IS NOT NULL AND author2 != ''
+            UNION
+            SELECT author3 as author FROM books WHERE status != 'COMPLETED' AND author3 IS NOT NULL AND author3 != ''
+            UNION
+            SELECT author4 as author FROM books WHERE status != 'COMPLETED' AND author4 IS NOT NULL AND author4 != ''
+            UNION
+            SELECT author5 as author FROM books WHERE status != 'COMPLETED' AND author5 IS NOT NULL AND author5 != ''
+        ) WHERE author IS NOT NULL AND author != ''
+        ORDER BY author ASC
+    """)
+    fun getAllAuthors(): Flow<List<String>>
+
+    @Query("SELECT DISTINCT category FROM books WHERE status != 'COMPLETED'")
+    fun getAllCategoriesForFilter(): Flow<List<String>>
 }
 

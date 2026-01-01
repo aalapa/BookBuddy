@@ -78,12 +78,12 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.nav_export -> {
                     exportToCSV()
-                    drawerLayout.closeDrawer(GravityCompat.START)
+                    drawerLayout.closeDrawer(GravityCompat.END)
                     true
                 }
                 R.id.nav_import -> {
                     importFromCSV()
-                    drawerLayout.closeDrawer(GravityCompat.START)
+                    drawerLayout.closeDrawer(GravityCompat.END)
                     true
                 }
                 else -> false
@@ -111,8 +111,8 @@ class MainActivity : AppCompatActivity() {
         } else {
             // If NavController isn't ready, just close the drawer if it's open
             val drawerLayout: DrawerLayout = binding.drawerLayout
-            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                drawerLayout.closeDrawer(GravityCompat.START)
+            if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
+                drawerLayout.closeDrawer(GravityCompat.END)
                 true
             } else {
                 super.onSupportNavigateUp()

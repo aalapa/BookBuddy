@@ -54,6 +54,45 @@ class AddEditBookFragment : Fragment() {
 
         setupClickListeners()
         setupCategoryInput()
+        setupTitleCaseConversion()
+    }
+    
+    private fun setupTitleCaseConversion() {
+        // Apply title case when user finishes typing in book name
+        binding.etBookName.setOnFocusChangeListener { view, hasFocus ->
+            if (!hasFocus && view is android.widget.EditText) {
+                val text = view.text.toString().trim()
+                if (text.isNotEmpty()) {
+                    val titleCased = toTitleCase(text)
+                    if (text != titleCased) {
+                        view.setText(titleCased)
+                        view.setSelection(titleCased.length) // Move cursor to end
+                    }
+                }
+            }
+        }
+        
+        // Apply title case when user finishes typing in author
+        binding.etAuthor.setOnFocusChangeListener { view, hasFocus ->
+            if (!hasFocus && view is android.widget.EditText) {
+                val text = view.text.toString().trim()
+                if (text.isNotEmpty()) {
+                    // For authors, we need to handle multiple authors separated by ; or |
+                    val authors = text.split(Regex("[;|]"))
+                        .map { it.trim() }
+                        .filter { it.isNotEmpty() }
+                        .map { toTitleCase(it) }
+                    
+                    val titleCased = authors.joinToString(if (text.contains(";")) "; " else " | ")
+                    if (text != titleCased) {
+                        view.setText(titleCased)
+                        view.setSelection(titleCased.length) // Move cursor to end
+                    }
+                }
+            }
+        }
+        
+        // Note: Category title case is handled in setupCategoryInput() to avoid conflicts
     }
 
     private fun setupAutoRanking() {
@@ -78,7 +117,13 @@ class AddEditBookFragment : Fragment() {
                 if (_binding != null) {
                     book?.let {
                         binding.etBookName.setText(it.name)
-                        binding.etAuthor.setText(it.author)
+                        // Display all authors when editing (use getAllAuthors() helper or fallback to author field)
+                        val authorDisplay = if (it.getAllAuthors().isNotEmpty()) {
+                            it.getAllAuthors().joinToString("; ")
+                        } else {
+                            it.author
+                        }
+                        binding.etAuthor.setText(authorDisplay)
                         binding.etCategory.setText(it.category)
                         binding.etRanking.setText(it.ranking.toString())
                         if (it.hasBook) {
@@ -141,11 +186,23 @@ class AddEditBookFragment : Fragment() {
                 }
                 
                 // Add new category when focus is lost and text is not empty
-                categoryInput.setOnFocusChangeListener { _, hasFocus ->
-                    if (!hasFocus && categoryInput.text?.isNotEmpty() == true) {
-                        val categoryName = categoryInput.text.toString().trim()
-                        if (categoryName.isNotEmpty() && !categoryNames.contains(categoryName)) {
-                            viewModel.addCategory(categoryName)
+                // Also apply title case conversion
+                categoryInput.setOnFocusChangeListener { view, hasFocus ->
+                    if (!hasFocus && view is android.widget.EditText) {
+                        val text = view.text.toString().trim()
+                        if (text.isNotEmpty()) {
+                            // Apply title case
+                            val titleCased = toTitleCase(text)
+                            if (text != titleCased) {
+                                view.setText(titleCased)
+                                view.setSelection(titleCased.length)
+                            }
+                            
+                            // Add category if it doesn't exist
+                            val categoryName = titleCased
+                            if (categoryName.isNotEmpty() && !categoryNames.contains(categoryName)) {
+                                viewModel.addCategory(categoryName)
+                            }
                         }
                     }
                 }
@@ -153,19 +210,54 @@ class AddEditBookFragment : Fragment() {
         }
     }
 
+    /**
+     * Converts a string to title case (capitalizes first letter of each word)
+     */
+    private fun toTitleCase(text: String): String {
+        if (text.isEmpty()) return text
+        
+        return text.split(" ")
+            .joinToString(" ") { word ->
+                if (word.isEmpty()) {
+                    word
+                } else {
+                    // Capitalize first letter, lowercase the rest
+                    word.first().uppercaseChar() + word.drop(1).lowercase()
+                }
+            }
+    }
+
+    private fun parseAuthors(authorInput: String): Pair<String, List<String>> {
+        // Parse authors separated by ; or |
+        val authors = authorInput.split(Regex("[;|]"))
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
+            .map { toTitleCase(it) } // Convert each author to title case
+        
+        // Return display string (comma-separated) and list of individual authors
+        val displayAuthor = authors.joinToString(", ")
+        val authorList = authors.take(5) // Limit to 5 authors
+        
+        return Pair(displayAuthor, authorList)
+    }
+
     private fun saveBook() {
-        val bookName = binding.etBookName.text.toString().trim()
-        val author = binding.etAuthor.text.toString().trim()
-        val category = binding.etCategory.text.toString().trim()
+        val bookNameRaw = binding.etBookName.text.toString().trim()
+        val authorInputRaw = binding.etAuthor.text.toString().trim()
+        val categoryRaw = binding.etCategory.text.toString().trim()
         val rankingText = binding.etRanking.text.toString().trim()
         val hasBook = binding.rgHasBook.checkedRadioButtonId == R.id.rbYes
+
+        // Convert to title case
+        val bookName = toTitleCase(bookNameRaw)
+        val category = toTitleCase(categoryRaw)
 
         if (bookName.isEmpty()) {
             Toast.makeText(requireContext(), "Please enter book name", Toast.LENGTH_SHORT).show()
             return
         }
 
-        if (author.isEmpty()) {
+        if (authorInputRaw.isEmpty()) {
             Toast.makeText(requireContext(), "Please enter author name", Toast.LENGTH_SHORT).show()
             return
         }
@@ -175,7 +267,10 @@ class AddEditBookFragment : Fragment() {
             return
         }
 
-        // Ensure category is added to the database
+        // Parse multiple authors (title case conversion happens inside parseAuthors)
+        val (displayAuthor, authorList) = parseAuthors(authorInputRaw)
+        
+        // Ensure category is added to the database (already in title case)
         viewModel.addCategory(category)
 
         val ranking = try {
@@ -190,7 +285,12 @@ class AddEditBookFragment : Fragment() {
             if (existing != null) {
                 existing.copy(
                     name = bookName,
-                    author = author,
+                    author = displayAuthor, // Display string for backward compatibility
+                    author1 = authorList.getOrNull(0),
+                    author2 = authorList.getOrNull(1),
+                    author3 = authorList.getOrNull(2),
+                    author4 = authorList.getOrNull(3),
+                    author5 = authorList.getOrNull(4),
                     category = category,
                     ranking = ranking,
                     hasBook = hasBook,
@@ -205,7 +305,12 @@ class AddEditBookFragment : Fragment() {
         } else {
             Book(
                 name = bookName,
-                author = author,
+                author = displayAuthor, // Display string for backward compatibility
+                author1 = authorList.getOrNull(0),
+                author2 = authorList.getOrNull(1),
+                author3 = authorList.getOrNull(2),
+                author4 = authorList.getOrNull(3),
+                author5 = authorList.getOrNull(4),
                 category = category,
                 ranking = ranking,
                 hasBook = hasBook,

@@ -65,5 +65,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="Theme.BookBuddy" parent="Base.Theme.BookBuddy"/>
+    <style name="Theme.BookBuddy" parent="Base.Theme.BookBuddy">
+        
+        <item name="android:popupBackground">@drawable/dropdown_popup_background</item>
+    </style>
 </resources>

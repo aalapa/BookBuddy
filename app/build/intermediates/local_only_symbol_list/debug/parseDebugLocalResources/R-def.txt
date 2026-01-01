@@ -4,6 +4,8 @@ color amber
 color amber_light
 color background
 color black
+color bottom_nav_icon_color
+color bottom_nav_text_color
 color card_background
 color error
 color primary
@@ -15,12 +17,15 @@ color text_secondary
 color warning
 color white
 drawable circle_background
+drawable dropdown_item_background
+drawable dropdown_popup_background
 drawable ic_book_not_owned
 drawable ic_book_owned
 drawable ic_checkmark_circle
 drawable ic_launcher
 drawable ic_launcher_foreground
 drawable ic_launcher_round
+drawable ic_menu_hamburger
 drawable progress_bar_reading
 drawable status_background
 id action_booksToReadFragment_to_addEditBookFragment
@@ -46,11 +51,13 @@ id etAuthor
 id etBookName
 id etCategory
 id etRanking
+id etSearch
 id fabAddBook
 id filterBar
 id ivCategory
 id ivDragHandle
 id ivHasBook
+id ivSearchIcon
 id ivStatus
 id llDateInfo
 id llExpandedDetails
@@ -67,6 +74,7 @@ id recyclerView
 id rgHasBook
 id tilAuthorFilter
 id tilCategoryFilter
+id tilSearch
 id toolbar
 id tvAddedSince
 id tvAuthor
@@ -84,6 +92,7 @@ id tvRunRate
 id tvStartDate
 id tvTotalBooksRead
 layout activity_main
+layout dropdown_item_filter
 layout fragment_add_edit_book
 layout fragment_already_read
 layout fragment_books_to_read

@@ -20,7 +20,6 @@ class BookAdapter(
     private val onEditClick: (Book) -> Unit,
     private val onMarkInProgressClick: (Book) -> Unit,
     private val onMarkOnHoldClick: (Book) -> Unit,
-    private val onMarkCompletedClick: (Book) -> Unit,
     private val showActionButtons: Boolean = true,
     private val enableDrag: Boolean = false,
     val onItemMoved: ((Int, Int) -> Unit)? = null
@@ -107,7 +106,8 @@ class BookAdapter(
         fun bind(book: Book, isExpanded: Boolean) {
             tvRanking.text = book.ranking.toString()
             tvBookName.text = book.name
-            tvAuthor.text = book.author
+            // Display all authors (use helper function)
+            tvAuthor.text = book.getDisplayAuthor()
             tvCategory.text = book.category
             
             // Set expanded details
@@ -325,11 +325,12 @@ class BookAdapter(
                     }
                 }
                 BookStatus.COMPLETED -> {
-                    ivStatus.setImageResource(android.R.drawable.checkbox_on_background)
-                    ivStatus.setColorFilter(ContextCompat.getColor(itemView.context, R.color.success))
+                    ivStatus.setImageResource(R.drawable.ic_checkmark_circle)
+                    ivStatus.clearColorFilter() // Drawable already has green color
                     ivStatus.alpha = 1.0f
                     ivStatus.visibility = View.VISIBLE
                     btnMarkInProgress.visibility = View.GONE
+                    btnMarkOnHold.visibility = View.GONE
                     llDateInfo.visibility = View.VISIBLE
                     tvReadingSince.visibility = View.GONE
                     book.startDate?.let {

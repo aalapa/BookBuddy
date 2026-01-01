@@ -18,7 +18,49 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.BookBuddy"
             app:title="@string/books_to_read"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/white">
+
+            <ImageView
+                android:id="@+id/ivSearchIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="16dp"
+                android:src="@android:drawable/ic_menu_search"
+                android:tint="@color/white"
+                android:contentDescription="Search"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:scaleType="fitCenter" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <!-- Search Bar (Hidden by default) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:visibility="gone"
+            android:hint="Search by title..."
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:startIconDrawable="@android:drawable/ic_menu_search">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="36dp"
+                android:textSize="14sp"
+                android:imeOptions="actionSearch"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Filter and Sort Bar -->
         <LinearLayout
@@ -47,7 +89,8 @@
                     android:layout_height="wrap_content"
                     android:minHeight="40dp"
                     android:textSize="12sp"
-                    android:completionThreshold="0"
+                    android:completionThreshold="1"
+                    android:dropDownVerticalOffset="4dp"
                     android:text="All" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -69,7 +112,8 @@
                     android:layout_height="wrap_content"
                     android:minHeight="40dp"
                     android:textSize="12sp"
-                    android:completionThreshold="0"
+                    android:completionThreshold="1"
+                    android:dropDownVerticalOffset="4dp"
                     android:text="All" />
 
             </com.google.android.material.textfield.TextInputLayout>
