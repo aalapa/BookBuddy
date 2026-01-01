@@ -726,6 +726,17 @@ class BooksToReadFragment : Fragment() {
     private fun setupObservers() {
         try {
             android.util.Log.d("BookBuddy", "Setting up observers...")
+            
+            // Observe categories to update adapter's color map
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewModel.categories.collect { categories ->
+                    val colorMap = categories.associate { it.name to it.colorHex }
+                    adapter.updateCategoryColors(colorMap)
+                    android.util.Log.d("BookBuddy", "Updated category colors: ${colorMap.size} categories")
+                }
+            }
+            
+            // Observe books to read
             viewLifecycleOwner.lifecycleScope.launch {
                 try {
                     android.util.Log.d("BookBuddy", "Starting to collect booksToRead...")

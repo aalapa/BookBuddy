@@ -37,13 +37,15 @@ public final class CategoryDao_Impl implements CategoryDao {
 
   private final EntityDeletionOrUpdateAdapter<Category> __deletionAdapterOfCategory;
 
+  private final EntityDeletionOrUpdateAdapter<Category> __updateAdapterOfCategory;
+
   public CategoryDao_Impl(@NonNull final RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfCategory = new EntityInsertionAdapter<Category>(__db) {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR IGNORE INTO `categories` (`id`,`name`,`createdAt`) VALUES (nullif(?, 0),?,?)";
+        return "INSERT OR IGNORE INTO `categories` (`id`,`name`,`colorHex`,`createdAt`) VALUES (nullif(?, 0),?,?,?)";
       }
 
       @Override
@@ -51,7 +53,8 @@ public final class CategoryDao_Impl implements CategoryDao {
           @NonNull final Category entity) {
         statement.bindLong(1, entity.getId());
         statement.bindString(2, entity.getName());
-        statement.bindLong(3, entity.getCreatedAt());
+        statement.bindString(3, entity.getColorHex());
+        statement.bindLong(4, entity.getCreatedAt());
       }
     };
     this.__deletionAdapterOfCategory = new EntityDeletionOrUpdateAdapter<Category>(__db) {
@@ -65,6 +68,23 @@ public final class CategoryDao_Impl implements CategoryDao {
       protected void bind(@NonNull final SupportSQLiteStatement statement,
           @NonNull final Category entity) {
         statement.bindLong(1, entity.getId());
+      }
+    };
+    this.__updateAdapterOfCategory = new EntityDeletionOrUpdateAdapter<Category>(__db) {
+      @Override
+      @NonNull
+      protected String createQuery() {
+        return "UPDATE OR ABORT `categories` SET `id` = ?,`name` = ?,`colorHex` = ?,`createdAt` = ? WHERE `id` = ?";
+      }
+
+      @Override
+      protected void bind(@NonNull final SupportSQLiteStatement statement,
+          @NonNull final Category entity) {
+        statement.bindLong(1, entity.getId());
+        statement.bindString(2, entity.getName());
+        statement.bindString(3, entity.getColorHex());
+        statement.bindLong(4, entity.getCreatedAt());
+        statement.bindLong(5, entity.getId());
       }
     };
   }
@@ -108,6 +128,25 @@ public final class CategoryDao_Impl implements CategoryDao {
   }
 
   @Override
+  public Object updateCategory(final Category category,
+      final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      @NonNull
+      public Unit call() throws Exception {
+        __db.beginTransaction();
+        try {
+          __updateAdapterOfCategory.handle(category);
+          __db.setTransactionSuccessful();
+          return Unit.INSTANCE;
+        } finally {
+          __db.endTransaction();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
   public Flow<List<Category>> getAllCategories() {
     final String _sql = "SELECT * FROM categories ORDER BY name ASC";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
@@ -119,6 +158,7 @@ public final class CategoryDao_Impl implements CategoryDao {
         try {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfColorHex = CursorUtil.getColumnIndexOrThrow(_cursor, "colorHex");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final List<Category> _result = new ArrayList<Category>(_cursor.getCount());
           while (_cursor.moveToNext()) {
@@ -127,9 +167,11 @@ public final class CategoryDao_Impl implements CategoryDao {
             _tmpId = _cursor.getLong(_cursorIndexOfId);
             final String _tmpName;
             _tmpName = _cursor.getString(_cursorIndexOfName);
+            final String _tmpColorHex;
+            _tmpColorHex = _cursor.getString(_cursorIndexOfColorHex);
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
-            _item = new Category(_tmpId,_tmpName,_tmpCreatedAt);
+            _item = new Category(_tmpId,_tmpName,_tmpColorHex,_tmpCreatedAt);
             _result.add(_item);
           }
           return _result;
@@ -161,6 +203,7 @@ public final class CategoryDao_Impl implements CategoryDao {
         try {
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfColorHex = CursorUtil.getColumnIndexOrThrow(_cursor, "colorHex");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final Category _result;
           if (_cursor.moveToFirst()) {
@@ -168,11 +211,51 @@ public final class CategoryDao_Impl implements CategoryDao {
             _tmpId = _cursor.getLong(_cursorIndexOfId);
             final String _tmpName;
             _tmpName = _cursor.getString(_cursorIndexOfName);
+            final String _tmpColorHex;
+            _tmpColorHex = _cursor.getString(_cursorIndexOfColorHex);
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
-            _result = new Category(_tmpId,_tmpName,_tmpCreatedAt);
+            _result = new Category(_tmpId,_tmpName,_tmpColorHex,_tmpCreatedAt);
           } else {
             _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object getCategoriesWithoutColor(final Continuation<? super List<Category>> $completion) {
+    final String _sql = "SELECT * FROM categories WHERE colorHex IS NULL OR colorHex = ''";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<Category>>() {
+      @Override
+      @NonNull
+      public List<Category> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfName = CursorUtil.getColumnIndexOrThrow(_cursor, "name");
+          final int _cursorIndexOfColorHex = CursorUtil.getColumnIndexOrThrow(_cursor, "colorHex");
+          final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
+          final List<Category> _result = new ArrayList<Category>(_cursor.getCount());
+          while (_cursor.moveToNext()) {
+            final Category _item;
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final String _tmpName;
+            _tmpName = _cursor.getString(_cursorIndexOfName);
+            final String _tmpColorHex;
+            _tmpColorHex = _cursor.getString(_cursorIndexOfColorHex);
+            final long _tmpCreatedAt;
+            _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
+            _item = new Category(_tmpId,_tmpName,_tmpColorHex,_tmpCreatedAt);
+            _result.add(_item);
           }
           return _result;
         } finally {

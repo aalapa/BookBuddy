@@ -33,13 +33,13 @@ public final class BookDatabase_Impl extends BookDatabase {
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(3) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(4) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS `books` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `author` TEXT NOT NULL, `author1` TEXT, `author2` TEXT, `author3` TEXT, `author4` TEXT, `author5` TEXT, `category` TEXT NOT NULL, `ranking` INTEGER NOT NULL, `hasBook` INTEGER NOT NULL, `status` TEXT NOT NULL, `startDate` INTEGER, `endDate` INTEGER, `createdAt` INTEGER NOT NULL, `totalReadingDays` INTEGER NOT NULL, `currentReadingStartDate` INTEGER)");
-        db.execSQL("CREATE TABLE IF NOT EXISTS `categories` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `createdAt` INTEGER NOT NULL)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `categories` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `colorHex` TEXT NOT NULL, `createdAt` INTEGER NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'aedef7eee2d847dba45c6ce8ee424595')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '809addf1ea3f1270ad5d7dd0b645b9ad')");
       }
 
       @Override
@@ -116,9 +116,10 @@ public final class BookDatabase_Impl extends BookDatabase {
                   + " Expected:\n" + _infoBooks + "\n"
                   + " Found:\n" + _existingBooks);
         }
-        final HashMap<String, TableInfo.Column> _columnsCategories = new HashMap<String, TableInfo.Column>(3);
+        final HashMap<String, TableInfo.Column> _columnsCategories = new HashMap<String, TableInfo.Column>(4);
         _columnsCategories.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCategories.put("name", new TableInfo.Column("name", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsCategories.put("colorHex", new TableInfo.Column("colorHex", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsCategories.put("createdAt", new TableInfo.Column("createdAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysCategories = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesCategories = new HashSet<TableInfo.Index>(0);
@@ -131,7 +132,7 @@ public final class BookDatabase_Impl extends BookDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "aedef7eee2d847dba45c6ce8ee424595", "da9b3eefa01c8bd21b498691ec379deb");
+    }, "809addf1ea3f1270ad5d7dd0b645b9ad", "c04d66c650733c99c7c56e9cedc470e6");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;

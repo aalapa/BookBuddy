@@ -151,8 +151,29 @@ class BookRepository(
     }
 
     suspend fun insertCategory(category: Category): Long = categoryDao.insertCategory(category)
+    suspend fun updateCategory(category: Category) = categoryDao.updateCategory(category)
     suspend fun deleteCategory(category: Category) = categoryDao.deleteCategory(category)
     suspend fun getCategoryByName(name: String): Category? = categoryDao.getCategoryByName(name)
+    
+    /**
+     * Initialize colors for existing categories that don't have colors assigned
+     */
+    suspend fun initializeCategoryColors() {
+        try {
+            val categoriesWithoutColor = categoryDao.getCategoriesWithoutColor()
+            if (categoriesWithoutColor.isNotEmpty()) {
+                android.util.Log.d("BookBuddy", "Found ${categoriesWithoutColor.size} categories without colors, initializing...")
+                categoriesWithoutColor.forEach { category ->
+                    val colorHex = com.bookbuddy.utils.CategoryColorGenerator.generateColorForCategory(category.name)
+                    val updatedCategory = category.copy(colorHex = colorHex)
+                    categoryDao.updateCategory(updatedCategory)
+                    android.util.Log.d("BookBuddy", "Assigned color $colorHex to category: ${category.name}")
+                }
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("BookBuddy", "Error initializing category colors", e)
+        }
+    }
 
     suspend fun updateBookRankings(books: List<Book>) {
         // Update all rankings in a transaction

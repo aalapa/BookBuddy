@@ -11,10 +11,16 @@ interface CategoryDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertCategory(category: Category): Long
 
+    @Update
+    suspend fun updateCategory(category: Category)
+
     @Delete
     suspend fun deleteCategory(category: Category)
 
     @Query("SELECT * FROM categories WHERE name = :name")
     suspend fun getCategoryByName(name: String): Category?
+    
+    @Query("SELECT * FROM categories WHERE colorHex IS NULL OR colorHex = ''")
+    suspend fun getCategoriesWithoutColor(): List<Category>
 }
 

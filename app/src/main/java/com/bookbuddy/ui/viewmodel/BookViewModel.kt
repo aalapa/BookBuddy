@@ -49,6 +49,16 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
             categories = repository.getAllCategories()
             allAuthors = repository.getAllAuthors()
             allCategoriesForFilter = repository.getAllCategoriesForFilter()
+            
+            // Initialize colors for existing categories that don't have colors
+            viewModelScope.launch {
+                try {
+                    repository.initializeCategoryColors()
+                } catch (e: Exception) {
+                    android.util.Log.e("BookBuddy", "Error initializing category colors", e)
+                }
+            }
+            
             android.util.Log.d("BookBuddy", "BookViewModel initialized successfully")
         } catch (e: Exception) {
             android.util.Log.e("BookBuddy", "Failed to initialize ViewModel", e)
@@ -166,7 +176,10 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
             try {
                 val existingCategory = repository.getCategoryByName(categoryName)
                 if (existingCategory == null) {
-                    repository.insertCategory(com.bookbuddy.data.Category(name = categoryName))
+                    // Generate a color for the new category
+                    val colorHex = com.bookbuddy.utils.CategoryColorGenerator.generateColorForCategory(categoryName)
+                    repository.insertCategory(com.bookbuddy.data.Category(name = categoryName, colorHex = colorHex))
+                    android.util.Log.d("BookBuddy", "Added category: $categoryName with color: $colorHex")
                 }
             } catch (e: Exception) {
                 _errorMessage.value = e.message
@@ -209,8 +222,10 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
                 uniqueCategories.forEach { categoryName ->
                     val existingCategory = repository.getCategoryByName(categoryName)
                     if (existingCategory == null) {
-                        repository.insertCategory(com.bookbuddy.data.Category(name = categoryName))
-                        android.util.Log.d("BookBuddy", "Added category from import: $categoryName")
+                        // Generate a color for the imported category
+                        val colorHex = com.bookbuddy.utils.CategoryColorGenerator.generateColorForCategory(categoryName)
+                        repository.insertCategory(com.bookbuddy.data.Category(name = categoryName, colorHex = colorHex))
+                        android.util.Log.d("BookBuddy", "Added category from import: $categoryName with color: $colorHex")
                     }
                 }
                 

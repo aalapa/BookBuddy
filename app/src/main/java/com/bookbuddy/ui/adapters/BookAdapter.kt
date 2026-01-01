@@ -28,6 +28,18 @@ class BookAdapter(
     // Track expanded position (only one at a time)
     private var expandedBookId: Long? = null
     
+    // Map of category name to color hex
+    private val categoryColorMap = mutableMapOf<String, String>()
+    
+    /**
+     * Update the category color map
+     */
+    fun updateCategoryColors(categories: Map<String, String>) {
+        categoryColorMap.clear()
+        categoryColorMap.putAll(categories)
+        notifyDataSetChanged() // Refresh all items to apply new colors
+    }
+    
     // Track swiped items (bookId to swipe direction)
     private val swipedItems = mutableMapOf<Long, SwipeDirection>()
     
@@ -55,7 +67,8 @@ class BookAdapter(
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val book = getItem(position)
-        holder.bind(book, expandedBookId == book.id)
+        val swipeState = swipedItems[book.id]
+        holder.bind(book, expandedBookId == book.id, swipeState)
     }
 
     inner class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -103,12 +116,23 @@ class BookAdapter(
             return (diffInMillis / (24 * 60 * 60 * 1000)).toInt()
         }
 
-        fun bind(book: Book, isExpanded: Boolean) {
+        fun bind(book: Book, isExpanded: Boolean, swipeState: SwipeDirection?) {
             tvRanking.text = book.ranking.toString()
             tvBookName.text = book.name
             // Display all authors (use helper function)
             tvAuthor.text = book.getDisplayAuthor()
             tvCategory.text = book.category
+            
+            // Set ranking background color based on category
+            val categoryColor = categoryColorMap[book.category] 
+                ?: com.bookbuddy.utils.CategoryColorGenerator.generateColorForCategory(book.category)
+            
+            // Create a drawable with the category color
+            val colorDrawable = android.graphics.drawable.GradientDrawable().apply {
+                shape = android.graphics.drawable.GradientDrawable.OVAL
+                setColor(android.graphics.Color.parseColor(categoryColor))
+            }
+            tvRanking.background = colorDrawable
             
             // Set expanded details
             tvExpandedBookName.text = book.name
@@ -216,7 +240,6 @@ class BookAdapter(
             }
 
             // Check if this item is in a swiped state (swipe colors take priority over status colors)
-            val swipeState = this@BookAdapter.swipedItems[book.id]
             val isSwiped = swipeState != null && swipeState != SwipeDirection.NONE
             
             // Set progress bar and border/background based on book status
