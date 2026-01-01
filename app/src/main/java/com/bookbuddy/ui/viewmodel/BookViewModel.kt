@@ -200,13 +200,47 @@ class BookViewModel(application: Application) : AndroidViewModel(application) {
     fun importBooks(books: List<Book>) {
         viewModelScope.launch {
             try {
-                books.forEach { book ->
-                    repository.insertBook(book.copy(id = 0)) // Reset ID to let Room auto-generate
+                // Extract unique categories from imported books and add them to Category table
+                val uniqueCategories = books.map { it.category.trim() }
+                    .filter { it.isNotEmpty() }
+                    .distinct()
+                    .map { toTitleCase(it) }
+                
+                uniqueCategories.forEach { categoryName ->
+                    val existingCategory = repository.getCategoryByName(categoryName)
+                    if (existingCategory == null) {
+                        repository.insertCategory(com.bookbuddy.data.Category(name = categoryName))
+                        android.util.Log.d("BookBuddy", "Added category from import: $categoryName")
+                    }
                 }
+                
+                // Insert books (with title-cased categories for consistency)
+                books.forEach { book ->
+                    val titleCasedCategory = toTitleCase(book.category.trim())
+                    repository.insertBook(book.copy(
+                        id = 0, // Reset ID to let Room auto-generate
+                        category = titleCasedCategory
+                    ))
+                }
+                
+                android.util.Log.d("BookBuddy", "Imported ${books.size} books with ${uniqueCategories.size} categories")
             } catch (e: Exception) {
+                android.util.Log.e("BookBuddy", "Error importing books", e)
                 _errorMessage.value = e.message
             }
         }
+    }
+    
+    private fun toTitleCase(text: String): String {
+        if (text.isEmpty()) return text
+        return text.split(" ")
+            .joinToString(" ") { word ->
+                if (word.isEmpty()) {
+                    word
+                } else {
+                    word.first().uppercaseChar() + word.drop(1).lowercase()
+                }
+            }
     }
 }
 
