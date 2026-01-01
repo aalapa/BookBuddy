@@ -20,8 +20,8 @@
         "source": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-main-55:/layout/fragment_add_edit_book.xml"
     },
     {
-        "merged": "com.bookbuddy.app-mergeDebugResources-52:/layout/fragment_books_to_read.xml",
-        "source": "com.bookbuddy.app-main-55:/layout/fragment_books_to_read.xml"
+        "merged": "com.bookbuddy.app-mergeDebugResources-52:/layout/item_book.xml",
+        "source": "com.bookbuddy.app-main-55:/layout/item_book.xml"
     },
     {
         "merged": "/Users/ragnor/.gradle/daemon/8.5/com.bookbuddy.app-mergeDebugResources-52:/layout/fragment_dashboard.xml",

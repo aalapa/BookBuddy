@@ -1,0 +1,389 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:2:1-25:12
+MERGED from [androidx.databinding:viewbinding:8.3.0] /Users/ragnor/.gradle/caches/transforms-3/5f1834428217f1a35cace5cf3e5c3e9b/transformed/viewbinding-8.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-common:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/bed1633c085765c8f8362c2570e342a6/transformed/navigation-common-2.7.6/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/45e8a37f067adf91baf2d1fb2f8ba140/transformed/navigation-common-ktx-2.7.6/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/e64c5ce384ea4fc6823062921f1047af/transformed/navigation-runtime-2.7.6/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/f51aae1f0a90df8349ffac54477936ab/transformed/navigation-runtime-ktx-2.7.6/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-fragment:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/53b831bca17f60d646433128aaa864d1/transformed/navigation-fragment-2.7.6/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/886822c4c3970d1d5676582a7f0cd2e1/transformed/navigation-fragment-ktx-2.7.6/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/133bdabc5bf1c4ca8ba16a2c199ed406/transformed/navigation-ui-ktx-2.7.6/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-ui:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/1a9646bf692e4f4c9eb8b48998c3cbe1/transformed/navigation-ui-2.7.6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.material:material:1.11.0] /Users/ragnor/.gradle/caches/transforms-3/2b1a709a8007ea58b38dded2c26f9f5d/transformed/material-1.11.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/ragnor/.gradle/caches/transforms-3/fcfdbd26380af18040988a44a8b0f64c/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/ragnor/.gradle/caches/transforms-3/ddcbe5da017e1c51e89e1143c0131cf2/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/ragnor/.gradle/caches/transforms-3/b398dbe31237cfc00e47f51edd41b2bf/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] /Users/ragnor/.gradle/caches/transforms-3/3ab1e18518432615834642c44164b8a4/transformed/recyclerview-1.3.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] /Users/ragnor/.gradle/caches/transforms-3/cf99b74e8a6f79de4bcdd6d7bc75e5d2/transformed/viewpager2-1.1.0-beta02/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment:1.6.2] /Users/ragnor/.gradle/caches/transforms-3/bbbcdaeeda5f09dc52706c34155c5af7/transformed/fragment-1.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] /Users/ragnor/.gradle/caches/transforms-3/a664d041d3f13ac41f075d96b2e5f59b/transformed/fragment-ktx-1.6.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.8.2] /Users/ragnor/.gradle/caches/transforms-3/cc907d7de303569ff6f40db5b0dc030b/transformed/activity-1.8.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.8.2] /Users/ragnor/.gradle/caches/transforms-3/a73dfb157d74847b48d33e99c394f665/transformed/activity-ktx-1.8.2/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/d0ea6b9a1c681e9ef9b03e50815a425d/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/fbe57c982426022044d58c86bbec9d7e/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/70eafe5ac7d352e2ff3b1ee61517bc34/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/6e84b263877e00747280446738f6bfbc/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/acd04a53b3768c5c07353b4335190ed3/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/35136c60227e5295bbbcfe0f16ac6e01/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/aa89fe80422337c99a4a59406fd71c64/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/e8959687ae6b74bf07899b513a1163b7/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/2cf016ed618a28f7ad83454338e7bfdb/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/332365704100b58279533f1ccacc8e4a/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/caebb95ce1ba988184e39299634b60e9/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.4.1] /Users/ragnor/.gradle/caches/transforms-3/16b93191fe8a3cc69e88b165d280a47d/transformed/transition-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/2a821743209de42e64147eb17e187640/transformed/window-1.0.0/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/8979f79dab1a1b0cc04840f79f477178/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/af4b4b45606e41c7ad819f2f0d7e58f6/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/ragnor/.gradle/caches/transforms-3/b1565889b0872578f8f96c358310abf8/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/ragnor/.gradle/caches/transforms-3/37993dfb5e2e52c6e7896f926ee17091/transformed/savedstate-1.2.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/9325b610efc9504c45a3eb79687ad6ec/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/5de0a941d52122755e179b74afca7202/transformed/lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/50d4531c085181d87c1806faeb0a4686/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/c258b409f6bd182bbcd39a8b7274bb51/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/422b2f7f1aa684453eeba933226f318b/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/2614d3e23766bb126b99aadd6065da9b/transformed/lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/3a7d3f63a460c7bcca4fd8e8f84e5186/transformed/lifecycle-livedata-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/2b108d6d35804fe4bff25ceb9906ee5b/transformed/lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/e185fbc5e8a6781cbc1c5f35dc385cc7/transformed/lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/856323b63f031c6c1a9c69f4a2639403/transformed/core-ktx-1.12.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/b189b59e41e425b1cfaf33fe943ef8d5/transformed/room-runtime-2.6.1/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.room:room-ktx:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/e1bc377015cff77ee7549c250af23e19/transformed/room-ktx-2.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /Users/ragnor/.gradle/caches/transforms-3/1ba9e7f3c4ae7add14749b3508da097a/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/ragnor/.gradle/caches/transforms-3/271d3401f4875e1d5cfe1dca5b8a9c08/transformed/sqlite-2.4.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/80a16705d3bfbff75c32a56e4375c5f3/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/847ecef1dd9c4af71b601014419735d6/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/1cec63f18961ddc083c7dbcc4eaf7c44/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/ragnor/.gradle/caches/transforms-3/a4f9cc73c256f7ce86e7cd81134a3343/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/1b6abd171fb8bb63c8ba72b323951a5b/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/6bee5951955ea9e09e2cef353b6cde9c/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/12380cbd3a874795e1d6e7fdac97034b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/b273068a2f088083234c146366a1d23a/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/aec0603a70fbe075cd85eaa947b5f1b6/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/5a93ca89267528a57d463e82ae06720d/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/07c372ac96b3d8cb23384418d6cfed10/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:5:5-23:19
+INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:5:5-23:19
+MERGED from [com.google.android.material:material:1.11.0] /Users/ragnor/.gradle/caches/transforms-3/2b1a709a8007ea58b38dded2c26f9f5d/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.11.0] /Users/ragnor/.gradle/caches/transforms-3/2b1a709a8007ea58b38dded2c26f9f5d/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/ragnor/.gradle/caches/transforms-3/fcfdbd26380af18040988a44a8b0f64c/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/ragnor/.gradle/caches/transforms-3/fcfdbd26380af18040988a44a8b0f64c/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.window:window:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/2a821743209de42e64147eb17e187640/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/2a821743209de42e64147eb17e187640/transformed/window-1.0.0/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/9325b610efc9504c45a3eb79687ad6ec/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/9325b610efc9504c45a3eb79687ad6ec/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/b189b59e41e425b1cfaf33fe943ef8d5/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/b189b59e41e425b1cfaf33fe943ef8d5/transformed/room-runtime-2.6.1/AndroidManifest.xml:23:5-29:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/6bee5951955ea9e09e2cef353b6cde9c/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/6bee5951955ea9e09e2cef353b6cde9c/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/12380cbd3a874795e1d6e7fdac97034b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/12380cbd3a874795e1d6e7fdac97034b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:11:9-35
+	android:label
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:9:9-34
+	android:roundIcon
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:10:9-54
+	tools:targetApi
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:13:9-29
+	android:icon
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:8:9-43
+	android:allowBackup
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:7:9-35
+	android:theme
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:12:9-47
+	android:name
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:6:9-45
+activity#com.bookbuddy.MainActivity
+ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:14:9-22:20
+	android:exported
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:16:13-36
+	android:theme
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:17:13-51
+	android:name
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:15:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:18:13-21:29
+action#android.intent.action.MAIN
+ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:19:17-69
+	android:name
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:19:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:20:17-77
+	android:name
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:20:27-74
+uses-sdk
+INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml
+INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:8.3.0] /Users/ragnor/.gradle/caches/transforms-3/5f1834428217f1a35cace5cf3e5c3e9b/transformed/viewbinding-8.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:8.3.0] /Users/ragnor/.gradle/caches/transforms-3/5f1834428217f1a35cace5cf3e5c3e9b/transformed/viewbinding-8.3.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/bed1633c085765c8f8362c2570e342a6/transformed/navigation-common-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/bed1633c085765c8f8362c2570e342a6/transformed/navigation-common-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/45e8a37f067adf91baf2d1fb2f8ba140/transformed/navigation-common-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/45e8a37f067adf91baf2d1fb2f8ba140/transformed/navigation-common-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/e64c5ce384ea4fc6823062921f1047af/transformed/navigation-runtime-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/e64c5ce384ea4fc6823062921f1047af/transformed/navigation-runtime-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/f51aae1f0a90df8349ffac54477936ab/transformed/navigation-runtime-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/f51aae1f0a90df8349ffac54477936ab/transformed/navigation-runtime-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/53b831bca17f60d646433128aaa864d1/transformed/navigation-fragment-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/53b831bca17f60d646433128aaa864d1/transformed/navigation-fragment-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/886822c4c3970d1d5676582a7f0cd2e1/transformed/navigation-fragment-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/886822c4c3970d1d5676582a7f0cd2e1/transformed/navigation-fragment-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/133bdabc5bf1c4ca8ba16a2c199ed406/transformed/navigation-ui-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/133bdabc5bf1c4ca8ba16a2c199ed406/transformed/navigation-ui-ktx-2.7.6/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/1a9646bf692e4f4c9eb8b48998c3cbe1/transformed/navigation-ui-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.7.6] /Users/ragnor/.gradle/caches/transforms-3/1a9646bf692e4f4c9eb8b48998c3cbe1/transformed/navigation-ui-2.7.6/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.11.0] /Users/ragnor/.gradle/caches/transforms-3/2b1a709a8007ea58b38dded2c26f9f5d/transformed/material-1.11.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.11.0] /Users/ragnor/.gradle/caches/transforms-3/2b1a709a8007ea58b38dded2c26f9f5d/transformed/material-1.11.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/ragnor/.gradle/caches/transforms-3/fcfdbd26380af18040988a44a8b0f64c/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/ragnor/.gradle/caches/transforms-3/fcfdbd26380af18040988a44a8b0f64c/transformed/constraintlayout-2.1.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/ragnor/.gradle/caches/transforms-3/ddcbe5da017e1c51e89e1143c0131cf2/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/ragnor/.gradle/caches/transforms-3/ddcbe5da017e1c51e89e1143c0131cf2/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/ragnor/.gradle/caches/transforms-3/b398dbe31237cfc00e47f51edd41b2bf/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /Users/ragnor/.gradle/caches/transforms-3/b398dbe31237cfc00e47f51edd41b2bf/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] /Users/ragnor/.gradle/caches/transforms-3/3ab1e18518432615834642c44164b8a4/transformed/recyclerview-1.3.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] /Users/ragnor/.gradle/caches/transforms-3/3ab1e18518432615834642c44164b8a4/transformed/recyclerview-1.3.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] /Users/ragnor/.gradle/caches/transforms-3/cf99b74e8a6f79de4bcdd6d7bc75e5d2/transformed/viewpager2-1.1.0-beta02/AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] /Users/ragnor/.gradle/caches/transforms-3/cf99b74e8a6f79de4bcdd6d7bc75e5d2/transformed/viewpager2-1.1.0-beta02/AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.6.2] /Users/ragnor/.gradle/caches/transforms-3/bbbcdaeeda5f09dc52706c34155c5af7/transformed/fragment-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.6.2] /Users/ragnor/.gradle/caches/transforms-3/bbbcdaeeda5f09dc52706c34155c5af7/transformed/fragment-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] /Users/ragnor/.gradle/caches/transforms-3/a664d041d3f13ac41f075d96b2e5f59b/transformed/fragment-ktx-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.6.2] /Users/ragnor/.gradle/caches/transforms-3/a664d041d3f13ac41f075d96b2e5f59b/transformed/fragment-ktx-1.6.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.2] /Users/ragnor/.gradle/caches/transforms-3/cc907d7de303569ff6f40db5b0dc030b/transformed/activity-1.8.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.2] /Users/ragnor/.gradle/caches/transforms-3/cc907d7de303569ff6f40db5b0dc030b/transformed/activity-1.8.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.2] /Users/ragnor/.gradle/caches/transforms-3/a73dfb157d74847b48d33e99c394f665/transformed/activity-ktx-1.8.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.2] /Users/ragnor/.gradle/caches/transforms-3/a73dfb157d74847b48d33e99c394f665/transformed/activity-ktx-1.8.2/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/d0ea6b9a1c681e9ef9b03e50815a425d/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/d0ea6b9a1c681e9ef9b03e50815a425d/transformed/emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/fbe57c982426022044d58c86bbec9d7e/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/fbe57c982426022044d58c86bbec9d7e/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/70eafe5ac7d352e2ff3b1ee61517bc34/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/70eafe5ac7d352e2ff3b1ee61517bc34/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/6e84b263877e00747280446738f6bfbc/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/6e84b263877e00747280446738f6bfbc/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/acd04a53b3768c5c07353b4335190ed3/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/acd04a53b3768c5c07353b4335190ed3/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/35136c60227e5295bbbcfe0f16ac6e01/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/35136c60227e5295bbbcfe0f16ac6e01/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/aa89fe80422337c99a4a59406fd71c64/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/aa89fe80422337c99a4a59406fd71c64/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/e8959687ae6b74bf07899b513a1163b7/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/e8959687ae6b74bf07899b513a1163b7/transformed/slidingpanelayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/2cf016ed618a28f7ad83454338e7bfdb/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/ragnor/.gradle/caches/transforms-3/2cf016ed618a28f7ad83454338e7bfdb/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/332365704100b58279533f1ccacc8e4a/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/332365704100b58279533f1ccacc8e4a/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/caebb95ce1ba988184e39299634b60e9/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/caebb95ce1ba988184e39299634b60e9/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.4.1] /Users/ragnor/.gradle/caches/transforms-3/16b93191fe8a3cc69e88b165d280a47d/transformed/transition-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.4.1] /Users/ragnor/.gradle/caches/transforms-3/16b93191fe8a3cc69e88b165d280a47d/transformed/transition-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/2a821743209de42e64147eb17e187640/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/2a821743209de42e64147eb17e187640/transformed/window-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/8979f79dab1a1b0cc04840f79f477178/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/8979f79dab1a1b0cc04840f79f477178/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/af4b4b45606e41c7ad819f2f0d7e58f6/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/af4b4b45606e41c7ad819f2f0d7e58f6/transformed/lifecycle-livedata-core-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/ragnor/.gradle/caches/transforms-3/b1565889b0872578f8f96c358310abf8/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] /Users/ragnor/.gradle/caches/transforms-3/b1565889b0872578f8f96c358310abf8/transformed/savedstate-ktx-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/ragnor/.gradle/caches/transforms-3/37993dfb5e2e52c6e7896f926ee17091/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] /Users/ragnor/.gradle/caches/transforms-3/37993dfb5e2e52c6e7896f926ee17091/transformed/savedstate-1.2.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/9325b610efc9504c45a3eb79687ad6ec/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/9325b610efc9504c45a3eb79687ad6ec/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/5de0a941d52122755e179b74afca7202/transformed/lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/5de0a941d52122755e179b74afca7202/transformed/lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/50d4531c085181d87c1806faeb0a4686/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/50d4531c085181d87c1806faeb0a4686/transformed/lifecycle-livedata-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/c258b409f6bd182bbcd39a8b7274bb51/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/c258b409f6bd182bbcd39a8b7274bb51/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/422b2f7f1aa684453eeba933226f318b/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/422b2f7f1aa684453eeba933226f318b/transformed/lifecycle-viewmodel-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/2614d3e23766bb126b99aadd6065da9b/transformed/lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/2614d3e23766bb126b99aadd6065da9b/transformed/lifecycle-viewmodel-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/3a7d3f63a460c7bcca4fd8e8f84e5186/transformed/lifecycle-livedata-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/3a7d3f63a460c7bcca4fd8e8f84e5186/transformed/lifecycle-livedata-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/2b108d6d35804fe4bff25ceb9906ee5b/transformed/lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/2b108d6d35804fe4bff25ceb9906ee5b/transformed/lifecycle-livedata-core-ktx-2.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/e185fbc5e8a6781cbc1c5f35dc385cc7/transformed/lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/e185fbc5e8a6781cbc1c5f35dc385cc7/transformed/lifecycle-viewmodel-savedstate-2.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/856323b63f031c6c1a9c69f4a2639403/transformed/core-ktx-1.12.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/856323b63f031c6c1a9c69f4a2639403/transformed/core-ktx-1.12.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/b189b59e41e425b1cfaf33fe943ef8d5/transformed/room-runtime-2.6.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-runtime:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/b189b59e41e425b1cfaf33fe943ef8d5/transformed/room-runtime-2.6.1/AndroidManifest.xml:21:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/e1bc377015cff77ee7549c250af23e19/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.room:room-ktx:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/e1bc377015cff77ee7549c250af23e19/transformed/room-ktx-2.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /Users/ragnor/.gradle/caches/transforms-3/1ba9e7f3c4ae7add14749b3508da097a/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite-framework:2.4.0] /Users/ragnor/.gradle/caches/transforms-3/1ba9e7f3c4ae7add14749b3508da097a/transformed/sqlite-framework-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/ragnor/.gradle/caches/transforms-3/271d3401f4875e1d5cfe1dca5b8a9c08/transformed/sqlite-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.sqlite:sqlite:2.4.0] /Users/ragnor/.gradle/caches/transforms-3/271d3401f4875e1d5cfe1dca5b8a9c08/transformed/sqlite-2.4.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/80a16705d3bfbff75c32a56e4375c5f3/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/80a16705d3bfbff75c32a56e4375c5f3/transformed/annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/847ecef1dd9c4af71b601014419735d6/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/847ecef1dd9c4af71b601014419735d6/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/1cec63f18961ddc083c7dbcc4eaf7c44/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/1cec63f18961ddc083c7dbcc4eaf7c44/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/ragnor/.gradle/caches/transforms-3/a4f9cc73c256f7ce86e7cd81134a3343/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/ragnor/.gradle/caches/transforms-3/a4f9cc73c256f7ce86e7cd81134a3343/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/1b6abd171fb8bb63c8ba72b323951a5b/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/1b6abd171fb8bb63c8ba72b323951a5b/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/6bee5951955ea9e09e2cef353b6cde9c/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/6bee5951955ea9e09e2cef353b6cde9c/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/12380cbd3a874795e1d6e7fdac97034b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/12380cbd3a874795e1d6e7fdac97034b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/b273068a2f088083234c146366a1d23a/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/b273068a2f088083234c146366a1d23a/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/aec0603a70fbe075cd85eaa947b5f1b6/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/aec0603a70fbe075cd85eaa947b5f1b6/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/5a93ca89267528a57d463e82ae06720d/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/5a93ca89267528a57d463e82ae06720d/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/07c372ac96b3d8cb23384418d6cfed10/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/07c372ac96b3d8cb23384418d6cfed10/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/9325b610efc9504c45a3eb79687ad6ec/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/9325b610efc9504c45a3eb79687ad6ec/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/12380cbd3a874795e1d6e7fdac97034b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/ragnor/.gradle/caches/transforms-3/12380cbd3a874795e1d6e7fdac97034b/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/ragnor/.gradle/caches/transforms-3/4399e196b2221012acdc8fa8ecd5b871/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/2a821743209de42e64147eb17e187640/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/2a821743209de42e64147eb17e187640/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/2a821743209de42e64147eb17e187640/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/2a821743209de42e64147eb17e187640/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/2a821743209de42e64147eb17e187640/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0] /Users/ragnor/.gradle/caches/transforms-3/2a821743209de42e64147eb17e187640/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+permission#com.bookbuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+uses-permission#com.bookbuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/9325b610efc9504c45a3eb79687ad6ec/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/9325b610efc9504c45a3eb79687ad6ec/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ragnor/.gradle/caches/transforms-3/9325b610efc9504c45a3eb79687ad6ec/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/b189b59e41e425b1cfaf33fe943ef8d5/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+	android:exported
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/b189b59e41e425b1cfaf33fe943ef8d5/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/b189b59e41e425b1cfaf33fe943ef8d5/transformed/room-runtime-2.6.1/AndroidManifest.xml:28:13-60
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/b189b59e41e425b1cfaf33fe943ef8d5/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime:2.6.1] /Users/ragnor/.gradle/caches/transforms-3/b189b59e41e425b1cfaf33fe943ef8d5/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.0] /Users/ragnor/.gradle/caches/transforms-3/cb336495056c71afc2c88f6a48c71660/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92

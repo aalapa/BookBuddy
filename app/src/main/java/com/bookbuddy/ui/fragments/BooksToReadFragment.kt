@@ -1,6 +1,8 @@
 package com.bookbuddy.ui.fragments
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -39,6 +41,7 @@ class BooksToReadFragment : Fragment() {
     private var selectedAuthor: String? = null
     private var selectedCategory: String? = null
     private var sortBy: String = "ranking" // ranking, date_asc, date_desc
+    private var isUpdatingFilterProgrammatically = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -159,13 +162,47 @@ class BooksToReadFragment : Fragment() {
     private var currentBooks: List<Book> = emptyList()
 
     private fun setupFilterAndSort() {
-        // Setup author filter listener
+        // Set threshold for AutoCompleteTextView to show suggestions immediately
+        binding.actvAuthorFilter.threshold = 0
+        binding.actvCategoryFilter.threshold = 0
+        
+        // Setup author filter with multiple listeners
         binding.actvAuthorFilter.setOnItemClickListener { _, _, position, _ ->
-            val authors = currentBooks.map { it.author }.distinct().sorted()
-            selectedAuthor = if (position == 0) null else authors[position - 1]
-            binding.actvAuthorFilter.setText(selectedAuthor ?: "All", false)
-            applyFiltersAndSort()
+            android.util.Log.d("BookBuddy", "Author filter clicked, position: $position")
+            isUpdatingFilterProgrammatically = true
+            val authors = listOf("All") + currentBooks.map { it.author }.distinct().sorted()
+            if (position < authors.size) {
+                selectedAuthor = if (position == 0) null else authors[position]
+                android.util.Log.d("BookBuddy", "Selected author: $selectedAuthor")
+                binding.actvAuthorFilter.setText(selectedAuthor ?: "All", false)
+                isUpdatingFilterProgrammatically = false
+                applyFiltersAndSort()
+            } else {
+                isUpdatingFilterProgrammatically = false
+            }
         }
+        
+        // Add TextWatcher for author filter
+        binding.actvAuthorFilter.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                if (isUpdatingFilterProgrammatically) return
+                val text = s?.toString()?.trim() ?: ""
+                android.util.Log.d("BookBuddy", "Author text changed: '$text'")
+                if (text.isEmpty() || text == "All") {
+                    selectedAuthor = null
+                } else {
+                    val authors = currentBooks.map { it.author }.distinct().sorted()
+                    if (authors.contains(text)) {
+                        selectedAuthor = text
+                    } else {
+                        selectedAuthor = null
+                    }
+                }
+                applyFiltersAndSort()
+            }
+        })
 
         // Setup category filter listener
         viewLifecycleOwner.lifecycleScope.launch {
@@ -176,11 +213,42 @@ class BooksToReadFragment : Fragment() {
                 
                 if (binding.actvCategoryFilter.tag == null) {
                     binding.actvCategoryFilter.tag = "listener_set"
+                    
                     binding.actvCategoryFilter.setOnItemClickListener { _, _, position, _ ->
-                        selectedCategory = if (position == 0) null else categoryNames[position - 1]
-                        binding.actvCategoryFilter.setText(selectedCategory ?: "All", false)
-                        applyFiltersAndSort()
+                        android.util.Log.d("BookBuddy", "Category filter clicked, position: $position")
+                        isUpdatingFilterProgrammatically = true
+                        val allCategories = listOf("All") + categoryNames
+                        if (position < allCategories.size) {
+                            selectedCategory = if (position == 0) null else allCategories[position]
+                            android.util.Log.d("BookBuddy", "Selected category: $selectedCategory")
+                            binding.actvCategoryFilter.setText(selectedCategory ?: "All", false)
+                            isUpdatingFilterProgrammatically = false
+                            applyFiltersAndSort()
+                        } else {
+                            isUpdatingFilterProgrammatically = false
+                        }
                     }
+                    
+                    // Add TextWatcher for category filter
+                    binding.actvCategoryFilter.addTextChangedListener(object : TextWatcher {
+                        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+                        override fun afterTextChanged(s: Editable?) {
+                            if (isUpdatingFilterProgrammatically) return
+                            val text = s?.toString()?.trim() ?: ""
+                            android.util.Log.d("BookBuddy", "Category text changed: '$text'")
+                            if (text.isEmpty() || text == "All") {
+                                selectedCategory = null
+                            } else {
+                                if (categoryNames.contains(text)) {
+                                    selectedCategory = text
+                                } else {
+                                    selectedCategory = null
+                                }
+                            }
+                            applyFiltersAndSort()
+                        }
+                    })
                 }
             }
         }
@@ -211,16 +279,37 @@ class BooksToReadFragment : Fragment() {
     }
 
     private fun applyFiltersAndSort() {
-        var filtered = currentBooks
+        if (!::adapter.isInitialized || _binding == null) {
+            android.util.Log.d("BookBuddy", "Adapter or binding not ready, skipping filter")
+            return
+        }
+        
+        android.util.Log.d("BookBuddy", "Applying filters - Author: $selectedAuthor, Category: $selectedCategory, Sort: $sortBy")
+        android.util.Log.d("BookBuddy", "Current books count: ${currentBooks.size}")
+        
+        if (currentBooks.isEmpty()) {
+            android.util.Log.d("BookBuddy", "No books to filter")
+            adapter.submitList(emptyList())
+            binding.emptyStateText.visibility = View.VISIBLE
+            return
+        }
+        
+        var filtered = currentBooks.toList() // Create a copy
         
         // Apply author filter
-        if (selectedAuthor != null) {
+        if (selectedAuthor != null && selectedAuthor!!.isNotEmpty() && selectedAuthor != "All") {
             filtered = filtered.filter { it.author == selectedAuthor }
+            android.util.Log.d("BookBuddy", "After author filter ($selectedAuthor): ${filtered.size} books")
+        } else {
+            android.util.Log.d("BookBuddy", "No author filter applied")
         }
         
         // Apply category filter
-        if (selectedCategory != null) {
+        if (selectedCategory != null && selectedCategory!!.isNotEmpty() && selectedCategory != "All") {
             filtered = filtered.filter { it.category == selectedCategory }
+            android.util.Log.d("BookBuddy", "After category filter ($selectedCategory): ${filtered.size} books")
+        } else {
+            android.util.Log.d("BookBuddy", "No category filter applied")
         }
         
         // Apply sort
@@ -230,10 +319,10 @@ class BooksToReadFragment : Fragment() {
             else -> filtered.sortedBy { it.ranking } // Default: by ranking
         }
         
-        if (_binding != null && ::adapter.isInitialized) {
-            adapter.submitList(filtered)
-            binding.emptyStateText.visibility = if (filtered.isEmpty()) View.VISIBLE else View.GONE
-        }
+        android.util.Log.d("BookBuddy", "Final filtered count: ${filtered.size}")
+        
+        adapter.submitList(filtered)
+        binding.emptyStateText.visibility = if (filtered.isEmpty()) View.VISIBLE else View.GONE
     }
 
     private fun setupObservers() {
@@ -251,6 +340,12 @@ class BooksToReadFragment : Fragment() {
                             val authors = books.map { it.author }.distinct().sorted()
                             val authorAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, listOf("All") + authors)
                             binding.actvAuthorFilter.setAdapter(authorAdapter)
+                            
+                            // Initialize with "All" if empty
+                            if (binding.actvAuthorFilter.text.toString().isEmpty()) {
+                                binding.actvAuthorFilter.setText("All", false)
+                                selectedAuthor = null
+                            }
                             
                             // Apply filters and sort
                             applyFiltersAndSort()

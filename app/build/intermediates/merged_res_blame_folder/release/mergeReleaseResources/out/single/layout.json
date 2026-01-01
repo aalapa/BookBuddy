@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.bookbuddy.app-mergeReleaseResources-52:/layout/fragment_already_read.xml",
+        "source": "com.bookbuddy.app-main-54:/layout/fragment_already_read.xml"
+    },
+    {
+        "merged": "com.bookbuddy.app-mergeReleaseResources-52:/layout/nav_header.xml",
+        "source": "com.bookbuddy.app-main-54:/layout/nav_header.xml"
+    },
+    {
+        "merged": "com.bookbuddy.app-mergeReleaseResources-52:/layout/fragment_dashboard.xml",
+        "source": "com.bookbuddy.app-main-54:/layout/fragment_dashboard.xml"
+    },
+    {
+        "merged": "com.bookbuddy.app-mergeReleaseResources-52:/layout/fragment_books_to_read.xml",
+        "source": "com.bookbuddy.app-main-54:/layout/fragment_books_to_read.xml"
+    },
+    {
+        "merged": "com.bookbuddy.app-mergeReleaseResources-52:/layout/item_book.xml",
+        "source": "com.bookbuddy.app-main-54:/layout/item_book.xml"
+    },
+    {
+        "merged": "com.bookbuddy.app-mergeReleaseResources-52:/layout/fragment_add_edit_book.xml",
+        "source": "com.bookbuddy.app-main-54:/layout/fragment_add_edit_book.xml"
+    },
+    {
+        "merged": "com.bookbuddy.app-mergeReleaseResources-52:/layout/activity_main.xml",
+        "source": "com.bookbuddy.app-main-54:/layout/activity_main.xml"
+    }
+]

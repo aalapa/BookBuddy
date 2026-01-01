@@ -1,8 +1,34 @@
+import java.util.Properties
+import java.io.FileInputStream
+import java.io.FileOutputStream
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
 }
+
+// Read version code from properties file
+val versionPropertiesFile = rootProject.file("version.properties")
+val versionProperties = Properties()
+if (versionPropertiesFile.exists()) {
+    versionProperties.load(FileInputStream(versionPropertiesFile))
+}
+var versionCodeValue = (versionProperties.getProperty("VERSION_CODE") ?: "1").toInt()
+
+// Auto-increment version code
+versionCodeValue++
+versionProperties.setProperty("VERSION_CODE", versionCodeValue.toString())
+versionProperties.store(FileOutputStream(versionPropertiesFile), "Auto-incremented version code")
+
+// Calculate version name (major.minor.patch) from incremented version code
+val majorVersion = 1
+val minorVersion = 0
+val patchVersion = versionCodeValue
+val versionNameValue = "$majorVersion.$minorVersion.$patchVersion"
+
+// Print version info for debugging
+println("Building with versionCode: $versionCodeValue, versionName: $versionNameValue")
 
 android {
     namespace = "com.bookbuddy"
@@ -12,19 +38,24 @@ android {
         applicationId = "com.bookbuddy"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = versionCodeValue
+        versionName = versionNameValue
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        debug {
+            isDebuggable = true
+            applicationIdSuffix = ".debug"
+        }
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            isShrinkResources = false
+            isDebuggable = false
+            // Use debug signing config for release (for development/testing only)
+            // In production, you should create a proper release keystore
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {

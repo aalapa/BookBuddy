@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bookbuddy"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="com.bookbuddy.debug"
+    android:versionCode="10"
+    android:versionName="1.0.10" >
 
     <uses-sdk
         android:minSdkVersion="24"
         android:targetSdkVersion="34" />
 
     <permission
-        android:name="com.bookbuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.bookbuddy.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.bookbuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="com.bookbuddy.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
         android:name="com.bookbuddy.BookBuddyApplication"
@@ -21,10 +21,9 @@
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="BookBuddy"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/Theme.BookBuddy" >
         <activity
             android:name="com.bookbuddy.MainActivity"
@@ -39,7 +38,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.bookbuddy.androidx-startup"
+            android:authorities="com.bookbuddy.debug.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

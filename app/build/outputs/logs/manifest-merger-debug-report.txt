@@ -108,7 +108,7 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/ragnor/.gradle/cache
 	android:supportsRtl
 		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:11:9-35
 	android:label
-		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:9:9-41
+		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:9:9-34
 	android:roundIcon
 		ADDED from /Users/ragnor/StudioProjects/BookBuddy/app/src/main/AndroidManifest.xml:10:9-54
 	tools:targetApi
@@ -315,7 +315,7 @@ ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3
 		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
 	android:name
 		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
-permission#com.bookbuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+permission#com.bookbuddy.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
 		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
@@ -325,7 +325,7 @@ uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
-uses-permission#com.bookbuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission#com.bookbuddy.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.12.0] /Users/ragnor/.gradle/caches/transforms-3/ea5f595040624d7238a1a4711ce2a4be/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
