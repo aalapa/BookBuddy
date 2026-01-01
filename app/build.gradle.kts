@@ -68,6 +68,19 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    
+    // Customize APK output name
+    applicationVariants.all {
+        val variant = this
+        variant.outputs.all {
+            val buildType = variant.buildType.name
+            val versionName = variant.versionName
+            val versionCode = variant.versionCode
+            
+            (this as com.android.build.gradle.internal.api.BaseVariantOutputImpl).outputFileName = 
+                "BookBuddy-${buildType}-v${versionName}(${versionCode}).apk"
+        }
+    }
 }
 
 dependencies {
