@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Circular background -->
+    <path
+        android:fillColor="@color/primary"
+        android:pathData="M24,4C12.95,4 4,12.95 4,24s8.95,20 20,20s20,-8.95 20,-20S35.05,4 24,4z"/>
+    <!-- Book cover -->
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M14,12L14,36L24,32L34,36L34,12L24,16L14,12z"/>
+    <!-- Book pages -->
+    <path
+        android:fillColor="@color/primary"
+        android:pathData="M16,14L16,34L24,31L32,34L32,14L24,17L16,14z"/>
+    <!-- Book binding -->
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M24,16L24,32"/>
+</vector>
+

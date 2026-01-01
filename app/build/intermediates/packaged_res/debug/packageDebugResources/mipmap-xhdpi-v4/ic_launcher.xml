@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Book cover -->
+    <path
+        android:fillColor="@color/primary"
+        android:pathData="M12,8L12,40L24,36L36,40L36,8L24,12L12,8z"/>
+    <!-- Book pages -->
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M14,10L14,38L24,35L34,38L34,10L24,13L14,10z"/>
+    <!-- Book binding -->
+    <path
+        android:fillColor="@color/primary_dark"
+        android:pathData="M24,12L24,36"/>
+</vector>
+

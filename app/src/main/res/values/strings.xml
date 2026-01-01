@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">BookBuddy</string>
+    <string name="books_to_read">Books to Read</string>
+    <string name="already_read">Already Read</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="add_book">Add Book</string>
+    <string name="edit_book">Edit Book</string>
+    <string name="book_name">Book Name</string>
+    <string name="author">Author</string>
+    <string name="category">Category</string>
+    <string name="do_you_have_book">Do you have this book?</string>
+    <string name="status">Status</string>
+    <string name="ranking">Ranking</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="not_started">Not Started</string>
+    <string name="in_progress">In Progress</string>
+    <string name="completed">Completed</string>
+    <string name="total_books_read">Total Books Read</string>
+    <string name="books_this_year">Books This Year</string>
+    <string name="run_rate">Run Rate (Books/Year)</string>
+    <string name="currently_reading">Currently Reading</string>
+    <string name="books_in_queue">Books in Queue</string>
+    <string name="select_category">Select Category</string>
+    <string name="add_category">Add Category</string>
+    <string name="category_name">Category Name</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="mark_as_in_progress">Mark as In Progress</string>
+    <string name="mark_as_completed">Mark as Completed</string>
+    <string name="enter_book_name">Enter book name</string>
+    <string name="enter_author_name">Enter author name</string>
+    <string name="enter_category_name">Enter category name</string>
+    <string name="enter_ranking">Enter ranking</string>
+    <string name="drag_to_reorder">Drag to reorder</string>
+</resources>
+

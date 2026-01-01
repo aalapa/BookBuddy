@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Apple-style Professional Color Palette -->
+    <!-- Primary: System Blue (Apple's signature blue) -->
+    <color name="primary">#007AFF</color>
+    <color name="primary_dark">#0051D5</color>
+    
+    <!-- Secondary: Muted slate blue -->
+    <color name="secondary">#5E9ED6</color>
+    
+    <!-- Base colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    
+    <!-- Background: Apple's light gray background -->
+    <color name="background">#F2F2F7</color>
+    <color name="card_background">#FFFFFF</color>
+    
+    <!-- Text: Apple's text colors -->
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#6D6D70</color>
+    
+    <!-- Status colors: Apple-style muted colors -->
+    <color name="success">#34C759</color>
+    <color name="warning">#FF9500</color>
+    <color name="error">#FF3B30</color>
+</resources>
+

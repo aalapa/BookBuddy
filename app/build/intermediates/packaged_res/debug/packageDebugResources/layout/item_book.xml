@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="3dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="1dp"
+    app:strokeWidth="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp">
+
+        <!-- Ranking -->
+        <TextView
+            android:id="@+id/tvRanking"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/circle_background"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- Drag Handle -->
+        <ImageView
+            android:id="@+id/ivDragHandle"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="6dp"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            android:contentDescription="@string/drag_to_reorder"
+            android:alpha="0.4"
+            android:visibility="gone" />
+
+        <!-- Book Info - Each on separate line -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical">
+
+            <!-- Book Name - Line 1 -->
+            <TextView
+                android:id="@+id/tvBookName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Book Name"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <!-- Author - Line 2 -->
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Author"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <!-- Category - Line 3 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Category Icon -->
+                <ImageView
+                    android:id="@+id/ivCategory"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@android:drawable/ic_menu_sort_by_size"
+                    android:contentDescription="@string/category"
+                    android:alpha="0.6" />
+
+                <TextView
+                    android:id="@+id/tvCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="Fiction"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="10sp"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <!-- Has Book Icon (Checkmark if owned, X if not) - Bigger and more intuitive -->
+                <ImageView
+                    android:id="@+id/ivHasBook"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="8dp"
+                    android:src="@android:drawable/checkbox_on_background"
+                    android:contentDescription="@string/do_you_have_book" />
+
+                <!-- Added Since Text -->
+                <TextView
+                    android:id="@+id/tvAddedSince"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="Added 5 days ago"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="9sp" />
+
+                <!-- Reading Since Text (shown when in progress) -->
+                <TextView
+                    android:id="@+id/tvReadingSince"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="Reading 3 days"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="9sp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Status Icon -->
+        <ImageView
+            android:id="@+id/ivStatus"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="@string/status"
+            android:visibility="gone" />
+
+        <!-- Action Buttons (Icons) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Mark In Progress Icon Button -->
+            <ImageButton
+                android:id="@+id/btnMarkInProgress"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_media_play"
+                android:contentDescription="@string/mark_as_in_progress"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="6dp"
+                android:visibility="gone" />
+
+            <!-- Mark On Hold Icon Button -->
+            <ImageButton
+                android:id="@+id/btnMarkOnHold"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_media_pause"
+                android:contentDescription="Put on hold"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="6dp"
+                android:visibility="gone" />
+
+            <!-- Mark Completed Icon Button -->
+            <ImageButton
+                android:id="@+id/btnMarkCompleted"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/checkbox_on_background"
+                android:contentDescription="@string/mark_as_completed"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="6dp"
+                android:visibility="gone" />
+
+            <!-- Edit Icon Button -->
+            <ImageButton
+                android:id="@+id/btnEdit"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_menu_edit"
+                android:contentDescription="@string/edit_book"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="6dp" />
+
+            <!-- Delete Icon Button -->
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_menu_delete"
+                android:contentDescription="@string/delete"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="6dp"
+                android:tint="@color/error" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Date Info (Hidden by default, shown for in-progress/completed) -->
+    <LinearLayout
+        android:id="@+id/llDateInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvStartDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Started: Jan 1, 2024"
+            android:textColor="@color/text_secondary"
+            android:textSize="9sp" />
+
+        <TextView
+            android:id="@+id/tvEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed: Jan 15, 2024"
+            android:textColor="@color/text_secondary"
+            android:textSize="9sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

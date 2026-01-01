@@ -1,0 +1,16 @@
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/data/Category.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/BookBuddyApplication.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/data/Book.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/repository/BookRepository.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/data/BookDao.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/data/DateConverters.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/ui/viewmodel/BookViewModel.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/ui/fragments/AlreadyReadFragment.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/data/BookDatabase.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/ui/fragments/AddEditBookFragment.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/data/CategoryDao.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/MainActivity.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/ui/viewmodel/BookViewModelFactory.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/ui/adapters/BookAdapter.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/ui/fragments/DashboardFragment.kt
+/Users/ragnor/StudioProjects/BookBuddy/app/src/main/java/com/bookbuddy/ui/fragments/BooksToReadFragment.kt
