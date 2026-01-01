@@ -28,6 +28,8 @@
     <string name="currently_reading">Currently Reading</string>
     <string name="dashboard">Dashboard</string>
     <string name="delete">Delete</string>
+    <string name="delete_book">Delete Book</string>
+    <string name="delete_confirmation">Are you sure you want to delete \"%1$s\" by %2$s?</string>
     <string name="do_you_have_book">Do you have this book?</string>
     <string name="drag_to_reorder">Drag to reorder</string>
     <string name="edit_book">Edit Book</string>

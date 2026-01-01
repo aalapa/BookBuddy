@@ -3236,6 +3236,7 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
+id bookInfoArea
 id booksToReadFragment
 id bottom
 id bottom_navigation
@@ -3252,6 +3253,7 @@ id btnMarkOnHold
 id btnSave
 id btnSort
 id buttonPanel
+id buttonsLayout
 id cache_measures
 id callMeasure
 id cancel_button
@@ -3408,9 +3410,11 @@ id linear
 id listMode
 id list_item
 id llDateInfo
+id llExpandedDetails
 id locale
 id ltr
 id m3_side_sheet
+id mainContentLayout
 id marquee
 id masked
 id match_constraint
@@ -3669,6 +3673,8 @@ id tvBooksThisYear
 id tvCategory
 id tvCurrentlyReading
 id tvEndDate
+id tvExpandedAuthor
+id tvExpandedBookName
 id tvRanking
 id tvReadingSince
 id tvRunRate
@@ -3966,6 +3972,8 @@ string completed
 string currently_reading
 string dashboard
 string delete
+string delete_book
+string delete_confirmation
 string dest_title
 string do_you_have_book
 string drag_to_reorder

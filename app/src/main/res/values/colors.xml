@@ -24,5 +24,7 @@
     <color name="success">#34C759</color>
     <color name="warning">#FF9500</color>
     <color name="error">#FF3B30</color>
+    <color name="amber">#FF8C00</color> <!-- Dark Amber for on-hold border -->
+    <color name="amber_light">#FFF8E1</color> <!-- Light Amber Background for on-hold cards -->
 </resources>
 

@@ -23,6 +23,9 @@ public final class ItemBookBinding implements ViewBinding {
   private final MaterialCardView rootView;
 
   @NonNull
+  public final LinearLayout bookInfoArea;
+
+  @NonNull
   public final ImageButton btnDelete;
 
   @NonNull
@@ -36,6 +39,9 @@ public final class ItemBookBinding implements ViewBinding {
 
   @NonNull
   public final ImageButton btnMarkOnHold;
+
+  @NonNull
+  public final LinearLayout buttonsLayout;
 
   @NonNull
   public final ImageView ivCategory;
@@ -53,6 +59,12 @@ public final class ItemBookBinding implements ViewBinding {
   public final LinearLayout llDateInfo;
 
   @NonNull
+  public final LinearLayout llExpandedDetails;
+
+  @NonNull
+  public final LinearLayout mainContentLayout;
+
+  @NonNull
   public final TextView tvAddedSince;
 
   @NonNull
@@ -68,6 +80,12 @@ public final class ItemBookBinding implements ViewBinding {
   public final TextView tvEndDate;
 
   @NonNull
+  public final TextView tvExpandedAuthor;
+
+  @NonNull
+  public final TextView tvExpandedBookName;
+
+  @NonNull
   public final TextView tvRanking;
 
   @NonNull
@@ -76,30 +94,39 @@ public final class ItemBookBinding implements ViewBinding {
   @NonNull
   public final TextView tvStartDate;
 
-  private ItemBookBinding(@NonNull MaterialCardView rootView, @NonNull ImageButton btnDelete,
-      @NonNull ImageButton btnEdit, @NonNull ImageButton btnMarkCompleted,
-      @NonNull ImageButton btnMarkInProgress, @NonNull ImageButton btnMarkOnHold,
+  private ItemBookBinding(@NonNull MaterialCardView rootView, @NonNull LinearLayout bookInfoArea,
+      @NonNull ImageButton btnDelete, @NonNull ImageButton btnEdit,
+      @NonNull ImageButton btnMarkCompleted, @NonNull ImageButton btnMarkInProgress,
+      @NonNull ImageButton btnMarkOnHold, @NonNull LinearLayout buttonsLayout,
       @NonNull ImageView ivCategory, @NonNull ImageView ivDragHandle, @NonNull ImageView ivHasBook,
-      @NonNull ImageView ivStatus, @NonNull LinearLayout llDateInfo, @NonNull TextView tvAddedSince,
-      @NonNull TextView tvAuthor, @NonNull TextView tvBookName, @NonNull TextView tvCategory,
-      @NonNull TextView tvEndDate, @NonNull TextView tvRanking, @NonNull TextView tvReadingSince,
-      @NonNull TextView tvStartDate) {
+      @NonNull ImageView ivStatus, @NonNull LinearLayout llDateInfo,
+      @NonNull LinearLayout llExpandedDetails, @NonNull LinearLayout mainContentLayout,
+      @NonNull TextView tvAddedSince, @NonNull TextView tvAuthor, @NonNull TextView tvBookName,
+      @NonNull TextView tvCategory, @NonNull TextView tvEndDate, @NonNull TextView tvExpandedAuthor,
+      @NonNull TextView tvExpandedBookName, @NonNull TextView tvRanking,
+      @NonNull TextView tvReadingSince, @NonNull TextView tvStartDate) {
     this.rootView = rootView;
+    this.bookInfoArea = bookInfoArea;
     this.btnDelete = btnDelete;
     this.btnEdit = btnEdit;
     this.btnMarkCompleted = btnMarkCompleted;
     this.btnMarkInProgress = btnMarkInProgress;
     this.btnMarkOnHold = btnMarkOnHold;
+    this.buttonsLayout = buttonsLayout;
     this.ivCategory = ivCategory;
     this.ivDragHandle = ivDragHandle;
     this.ivHasBook = ivHasBook;
     this.ivStatus = ivStatus;
     this.llDateInfo = llDateInfo;
+    this.llExpandedDetails = llExpandedDetails;
+    this.mainContentLayout = mainContentLayout;
     this.tvAddedSince = tvAddedSince;
     this.tvAuthor = tvAuthor;
     this.tvBookName = tvBookName;
     this.tvCategory = tvCategory;
     this.tvEndDate = tvEndDate;
+    this.tvExpandedAuthor = tvExpandedAuthor;
+    this.tvExpandedBookName = tvExpandedBookName;
     this.tvRanking = tvRanking;
     this.tvReadingSince = tvReadingSince;
     this.tvStartDate = tvStartDate;
@@ -132,6 +159,12 @@ public final class ItemBookBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bookInfoArea;
+      LinearLayout bookInfoArea = ViewBindings.findChildViewById(rootView, id);
+      if (bookInfoArea == null) {
+        break missingId;
+      }
+
       id = R.id.btnDelete;
       ImageButton btnDelete = ViewBindings.findChildViewById(rootView, id);
       if (btnDelete == null) {
@@ -159,6 +192,12 @@ public final class ItemBookBinding implements ViewBinding {
       id = R.id.btnMarkOnHold;
       ImageButton btnMarkOnHold = ViewBindings.findChildViewById(rootView, id);
       if (btnMarkOnHold == null) {
+        break missingId;
+      }
+
+      id = R.id.buttonsLayout;
+      LinearLayout buttonsLayout = ViewBindings.findChildViewById(rootView, id);
+      if (buttonsLayout == null) {
         break missingId;
       }
 
@@ -192,6 +231,18 @@ public final class ItemBookBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.llExpandedDetails;
+      LinearLayout llExpandedDetails = ViewBindings.findChildViewById(rootView, id);
+      if (llExpandedDetails == null) {
+        break missingId;
+      }
+
+      id = R.id.mainContentLayout;
+      LinearLayout mainContentLayout = ViewBindings.findChildViewById(rootView, id);
+      if (mainContentLayout == null) {
+        break missingId;
+      }
+
       id = R.id.tvAddedSince;
       TextView tvAddedSince = ViewBindings.findChildViewById(rootView, id);
       if (tvAddedSince == null) {
@@ -222,6 +273,18 @@ public final class ItemBookBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvExpandedAuthor;
+      TextView tvExpandedAuthor = ViewBindings.findChildViewById(rootView, id);
+      if (tvExpandedAuthor == null) {
+        break missingId;
+      }
+
+      id = R.id.tvExpandedBookName;
+      TextView tvExpandedBookName = ViewBindings.findChildViewById(rootView, id);
+      if (tvExpandedBookName == null) {
+        break missingId;
+      }
+
       id = R.id.tvRanking;
       TextView tvRanking = ViewBindings.findChildViewById(rootView, id);
       if (tvRanking == null) {
@@ -240,10 +303,11 @@ public final class ItemBookBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemBookBinding((MaterialCardView) rootView, btnDelete, btnEdit, btnMarkCompleted,
-          btnMarkInProgress, btnMarkOnHold, ivCategory, ivDragHandle, ivHasBook, ivStatus,
-          llDateInfo, tvAddedSince, tvAuthor, tvBookName, tvCategory, tvEndDate, tvRanking,
-          tvReadingSince, tvStartDate);
+      return new ItemBookBinding((MaterialCardView) rootView, bookInfoArea, btnDelete, btnEdit,
+          btnMarkCompleted, btnMarkInProgress, btnMarkOnHold, buttonsLayout, ivCategory,
+          ivDragHandle, ivHasBook, ivStatus, llDateInfo, llExpandedDetails, mainContentLayout,
+          tvAddedSince, tvAuthor, tvBookName, tvCategory, tvEndDate, tvExpandedAuthor,
+          tvExpandedBookName, tvRanking, tvReadingSince, tvStartDate);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

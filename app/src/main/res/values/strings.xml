@@ -36,5 +36,8 @@
     <string name="enter_category_name">Enter category name</string>
     <string name="enter_ranking">Enter ranking</string>
     <string name="drag_to_reorder">Drag to reorder</string>
+    <string name="delete_book">Delete Book</string>
+    <string name="delete_confirmation">Are you sure you want to delete \"%1$s\" by %2$s?</string>
+    <string name="complete_confirmation">Mark \"%1$s\" by %2$s as completed?</string>
 </resources>
 

@@ -22,6 +22,7 @@ id actvAuthorFilter
 id actvCategoryFilter
 id addEditBookFragment
 id alreadyReadFragment
+id bookInfoArea
 id booksToReadFragment
 id bottom_navigation
 id btnCancel
@@ -32,6 +33,7 @@ id btnMarkInProgress
 id btnMarkOnHold
 id btnSave
 id btnSort
+id buttonsLayout
 id dashboardFragment
 id drawer_layout
 id emptyStateText
@@ -46,6 +48,8 @@ id ivDragHandle
 id ivHasBook
 id ivStatus
 id llDateInfo
+id llExpandedDetails
+id mainContentLayout
 id nav_export
 id nav_graph
 id nav_host_fragment
@@ -66,6 +70,8 @@ id tvBooksThisYear
 id tvCategory
 id tvCurrentlyReading
 id tvEndDate
+id tvExpandedAuthor
+id tvExpandedBookName
 id tvRanking
 id tvReadingSince
 id tvRunRate
@@ -99,6 +105,8 @@ string completed
 string currently_reading
 string dashboard
 string delete
+string delete_book
+string delete_confirmation
 string do_you_have_book
 string drag_to_reorder
 string edit_book

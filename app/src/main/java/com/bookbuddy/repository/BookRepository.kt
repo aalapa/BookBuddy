@@ -18,7 +18,11 @@ class BookRepository(
     suspend fun getBookById(id: Long): Book? = bookDao.getBookById(id)
     suspend fun insertBook(book: Book): Long = bookDao.insertBook(book)
     suspend fun updateBook(book: Book) = bookDao.updateBook(book)
-    suspend fun deleteBook(book: Book) = bookDao.deleteBook(book)
+    suspend fun deleteBook(book: Book) {
+        bookDao.deleteBook(book)
+        // Re-rank remaining books to read
+        reRankBooksToRead()
+    }
 
     suspend fun markAsInProgress(bookId: Long) {
         val book = bookDao.getBookById(bookId)
@@ -62,6 +66,8 @@ class BookRepository(
             // Update total reading days and clear current session before marking as completed
             bookDao.updateReadingStatus(bookId, BookStatus.COMPLETED, null, finalTotalDays)
             bookDao.markAsCompleted(bookId, BookStatus.COMPLETED, now)
+            // Re-rank remaining books to read
+            reRankBooksToRead()
         }
     }
 
@@ -165,6 +171,27 @@ class BookRepository(
 
         // Update all rankings based on new positions
         reorderedBooks.forEachIndexed { index, book ->
+            val newRanking = index + 1
+            if (book.ranking != newRanking) {
+                bookDao.updateRanking(book.id, newRanking)
+            }
+        }
+    }
+
+    /**
+     * Re-ranks all books to read (NOT_STARTED, IN_PROGRESS, ON_HOLD) sequentially starting from 1
+     * This is called after a book is deleted or marked as completed
+     */
+    private suspend fun reRankBooksToRead() {
+        // Get all books that should be in the "to read" list
+        // This includes NOT_STARTED, IN_PROGRESS, and ON_HOLD (but not COMPLETED)
+        val allBooks = bookDao.getAllBooks()
+        val booksToRead = allBooks
+            .filter { it.status != BookStatus.COMPLETED }
+            .sortedBy { it.ranking } // Sort by current ranking to maintain order
+        
+        // Re-assign rankings sequentially starting from 1
+        booksToRead.forEachIndexed { index, book ->
             val newRanking = index + 1
             if (book.ranking != newRanking) {
                 bookDao.updateRanking(book.id, newRanking)

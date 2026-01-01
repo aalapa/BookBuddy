@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.PopupMenu
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -89,7 +91,6 @@ class BooksToReadFragment : Fragment() {
             android.util.Log.d("BookBuddy", "Setting up RecyclerView...")
             adapter = BookAdapter(
                 onEditClick = { book -> navigateToEditBook(book.id) },
-                onDeleteClick = { book -> viewModel.deleteBook(book) },
                 onMarkInProgressClick = { book -> viewModel.markAsInProgress(book.id) },
                 onMarkOnHoldClick = { book -> viewModel.markAsOnHold(book.id) },
                 onMarkCompletedClick = { book -> viewModel.markAsCompleted(book.id) },
@@ -123,7 +124,7 @@ class BooksToReadFragment : Fragment() {
     private fun createItemTouchHelperCallback(): ItemTouchHelper.SimpleCallback {
         return object : ItemTouchHelper.SimpleCallback(
             ItemTouchHelper.UP or ItemTouchHelper.DOWN,
-            0
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
         ) {
             override fun onMove(
                 recyclerView: RecyclerView,
@@ -150,13 +151,119 @@ class BooksToReadFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                // Not used for drag and drop
+                val position = viewHolder.adapterPosition
+                if (position == RecyclerView.NO_POSITION) return
+
+                val book = adapter.getItemAt(position) ?: return
+
+                when (direction) {
+                    ItemTouchHelper.RIGHT -> {
+                        // Swipe right = Delete
+                        adapter.setSwipeState(book.id, BookAdapter.SwipeDirection.RIGHT)
+                        adapter.notifyItemChanged(position) // Update to show red background
+                        showDeleteConfirmation(book, position)
+                    }
+                    ItemTouchHelper.LEFT -> {
+                        // Swipe left = Mark as Complete
+                        adapter.setSwipeState(book.id, BookAdapter.SwipeDirection.LEFT)
+                        adapter.notifyItemChanged(position) // Update to show green background
+                        showCompleteConfirmation(book, position)
+                    }
+                }
             }
 
             override fun isLongPressDragEnabled(): Boolean {
                 return true
             }
+
+            override fun onChildDraw(
+                c: android.graphics.Canvas,
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                dX: Float,
+                dY: Float,
+                actionState: Int,
+                isCurrentlyActive: Boolean
+            ) {
+                if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+                    val itemView = viewHolder.itemView
+                    val background = android.graphics.drawable.ColorDrawable()
+                    val icon: android.graphics.drawable.Drawable
+                    val iconMargin: Int
+                    val iconTop: Int
+                    val iconBottom: Int
+                    val iconLeft: Int
+                    val iconRight: Int
+
+                    when {
+                        dX > 0 -> {
+                            // Swiping right (delete) - red background
+                            background.color = android.graphics.Color.parseColor("#FF3B30")
+                            icon = ContextCompat.getDrawable(requireContext(), android.R.drawable.ic_menu_delete)!!
+                            icon.setTint(android.graphics.Color.WHITE)
+                            iconMargin = (itemView.height - icon.intrinsicHeight) / 2
+                            iconTop = itemView.top + (itemView.height - icon.intrinsicHeight) / 2
+                            iconBottom = iconTop + icon.intrinsicHeight
+                            iconLeft = itemView.left + iconMargin
+                            iconRight = iconLeft + icon.intrinsicWidth
+                            background.setBounds(itemView.left, itemView.top, itemView.left + dX.toInt(), itemView.bottom)
+                        }
+                        dX < 0 -> {
+                            // Swiping left (complete) - green background
+                            background.color = android.graphics.Color.parseColor("#34C759")
+                            icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_checkmark_circle)!!
+                            icon.setTint(android.graphics.Color.WHITE)
+                            iconMargin = (itemView.height - icon.intrinsicHeight) / 2
+                            iconTop = itemView.top + (itemView.height - icon.intrinsicHeight) / 2
+                            iconBottom = iconTop + icon.intrinsicHeight
+                            iconRight = itemView.right - iconMargin
+                            iconLeft = iconRight - icon.intrinsicWidth
+                            background.setBounds(itemView.right + dX.toInt(), itemView.top, itemView.right, itemView.bottom)
+                        }
+                        else -> {
+                            background.setBounds(0, 0, 0, 0)
+                            icon = ContextCompat.getDrawable(requireContext(), android.R.drawable.ic_menu_delete)!!
+                            iconMargin = 0
+                            iconTop = 0
+                            iconBottom = 0
+                            iconLeft = 0
+                            iconRight = 0
+                        }
+                    }
+
+                    background.draw(c)
+                    if (dX != 0f) {
+                        icon.setBounds(iconLeft, iconTop, iconRight, iconBottom)
+                        icon.draw(c)
+                    }
+                }
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+            }
         }
+    }
+
+    private fun showCompleteConfirmation(book: Book, position: Int) {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.mark_as_completed)
+            .setMessage(getString(R.string.complete_confirmation, book.name, book.author))
+            .setPositiveButton(R.string.mark_as_completed) { dialog, _ ->
+                // Clear swipe state and let the item be removed
+                adapter.clearSwipeState(book.id)
+                viewModel.markAsCompleted(book.id)
+                dialog.dismiss()
+            }
+            .setNegativeButton(R.string.cancel) { dialog, _ ->
+                // Restore the item - clear swipe state
+                adapter.clearSwipeState(book.id)
+                adapter.notifyItemChanged(position)
+                dialog.dismiss()
+            }
+            .setOnDismissListener {
+                // Also restore if dialog is dismissed without button press
+                adapter.clearSwipeState(book.id)
+                adapter.notifyItemChanged(position)
+            }
+            .show()
     }
 
     private var currentBooks: List<Book> = emptyList()
@@ -414,6 +521,30 @@ class BooksToReadFragment : Fragment() {
             android.util.Log.e("BookBuddy", "Error navigating to edit book", e)
             e.printStackTrace()
         }
+    }
+
+    private fun showDeleteConfirmation(book: Book, position: Int) {
+        androidx.appcompat.app.AlertDialog.Builder(requireContext())
+            .setTitle(R.string.delete_book)
+            .setMessage(getString(R.string.delete_confirmation, book.name, book.author))
+            .setPositiveButton(R.string.delete) { dialog, _ ->
+                // Clear swipe state and let the item be removed
+                adapter.clearSwipeState(book.id)
+                viewModel.deleteBook(book)
+                dialog.dismiss()
+            }
+            .setNegativeButton(R.string.cancel) { dialog, _ ->
+                // Restore the item - clear swipe state
+                adapter.clearSwipeState(book.id)
+                adapter.notifyItemChanged(position)
+                dialog.dismiss()
+            }
+            .setOnDismissListener {
+                // Also restore if dialog is dismissed without button press
+                adapter.clearSwipeState(book.id)
+                adapter.notifyItemChanged(position)
+            }
+            .show()
     }
 
     override fun onDestroyView() {

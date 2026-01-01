@@ -2,6 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
@@ -9,9 +10,16 @@
     app:cardBackgroundColor="@color/card_background"
     app:cardCornerRadius="6dp"
     app:cardElevation="1dp"
-    app:strokeWidth="0dp">
+    app:strokeWidth="0dp"
+    app:strokeColor="@color/primary">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/mainContentLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -30,6 +38,20 @@
             android:textSize="12sp"
             android:textStyle="bold" />
 
+        <!-- Progress Bar (shown when reading) - Vertical colored bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:progressDrawable="@drawable/progress_bar_reading"
+            android:visibility="gone"
+            android:max="100"
+            android:progress="100"
+            android:indeterminate="false" />
+
         <!-- Drag Handle -->
         <ImageView
             android:id="@+id/ivDragHandle"
@@ -43,11 +65,14 @@
 
         <!-- Book Info - Each on separate line -->
         <LinearLayout
+            android:id="@+id/bookInfoArea"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="8dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
 
             <!-- Book Name - Line 1 -->
             <TextView
@@ -153,66 +178,102 @@
 
         <!-- Action Buttons (Icons) -->
         <LinearLayout
+            android:id="@+id/buttonsLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:clickable="false"
+            android:focusable="false"
+            android:elevation="4dp">
 
             <!-- Mark In Progress Icon Button -->
             <ImageButton
                 android:id="@+id/btnMarkInProgress"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="8dp"
                 android:src="@android:drawable/ic_media_play"
                 android:contentDescription="@string/mark_as_in_progress"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="6dp"
+                android:padding="10dp"
+                android:minWidth="44dp"
+                android:minHeight="44dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:visibility="gone" />
 
             <!-- Mark On Hold Icon Button -->
             <ImageButton
                 android:id="@+id/btnMarkOnHold"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="8dp"
                 android:src="@android:drawable/ic_media_pause"
                 android:contentDescription="Put on hold"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="6dp"
-                android:visibility="gone" />
-
-            <!-- Mark Completed Icon Button -->
-            <ImageButton
-                android:id="@+id/btnMarkCompleted"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@android:drawable/checkbox_on_background"
-                android:contentDescription="@string/mark_as_completed"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="6dp"
+                android:padding="10dp"
+                android:minWidth="44dp"
+                android:minHeight="44dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:visibility="gone" />
 
             <!-- Edit Icon Button -->
             <ImageButton
                 android:id="@+id/btnEdit"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
                 android:src="@android:drawable/ic_menu_edit"
                 android:contentDescription="@string/edit_book"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="6dp" />
-
-            <!-- Delete Icon Button -->
-            <ImageButton
-                android:id="@+id/btnDelete"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@android:drawable/ic_menu_delete"
-                android:contentDescription="@string/delete"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="6dp"
-                android:tint="@color/error" />
+                android:padding="10dp"
+                android:minWidth="44dp"
+                android:minHeight="44dp"
+                android:clickable="true"
+                android:focusable="true" />
 
         </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Expanded Details Section -->
+    <LinearLayout
+        android:id="@+id/llExpandedDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:padding="12dp"
+        android:background="@color/background"
+        android:clickable="true"
+        android:focusable="false"
+        android:importantForAccessibility="no">
+
+        <!-- Expanded Book Name -->
+        <TextView
+            android:id="@+id/tvExpandedBookName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Book Name"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp" />
+
+        <!-- Expanded Author -->
+        <TextView
+            android:id="@+id/tvExpandedAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Author Name"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -244,6 +305,8 @@
             android:textColor="@color/text_secondary"
             android:textSize="9sp"
             android:visibility="gone" />
+
+    </LinearLayout>
 
     </LinearLayout>
 

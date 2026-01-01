@@ -39,14 +39,13 @@ class AlreadyReadFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = BookAdapter(
-            onEditClick = { },
-            onDeleteClick = { },
-            onMarkInProgressClick = { },
-            onMarkOnHoldClick = { },
-            onMarkCompletedClick = { },
-            showActionButtons = false
-        )
+            adapter = BookAdapter(
+                onEditClick = { },
+                onMarkInProgressClick = { },
+                onMarkOnHoldClick = { },
+                onMarkCompletedClick = { },
+                showActionButtons = false
+            )
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
