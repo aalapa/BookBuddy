@@ -400,7 +400,9 @@ class BooksToReadFragment : Fragment() {
                     binding.actvAuthorFilter.setOnItemClickListener { parent, view, position, id ->
                         android.util.Log.d("BookBuddy", "Author filter clicked, position: $position")
                         isUpdatingFilterProgrammatically = true
-                        val selectedItem = authorAdapter.getItem(position)
+                        // Get the selected item from the parent adapter (the actual adapter on the view)
+                        // instead of the closure variable to avoid stale adapter references
+                        val selectedItem = parent.getItemAtPosition(position) as? String
                         if (selectedItem != null) {
                             selectedAuthor = if (selectedItem == "All") null else selectedItem
                             android.util.Log.d("BookBuddy", "Selected author: $selectedAuthor")
@@ -564,7 +566,9 @@ class BooksToReadFragment : Fragment() {
                     binding.actvCategoryFilter.setOnItemClickListener { parent, view, position, id ->
                         android.util.Log.d("BookBuddy", "Category filter clicked, position: $position")
                         isUpdatingFilterProgrammatically = true
-                        val selectedItem = categoryAdapter.getItem(position)
+                        // Get the selected item from the parent adapter (the actual adapter on the view)
+                        // instead of the closure variable to avoid stale adapter references
+                        val selectedItem = parent.getItemAtPosition(position) as? String
                         if (selectedItem != null) {
                             selectedCategory = if (selectedItem == "All") null else selectedItem
                             android.util.Log.d("BookBuddy", "Selected category: $selectedCategory")
