@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:minHeight="40dp"
                     android:textSize="12sp"
-                    android:completionThreshold="1"
+                    android:completionThreshold="3"
                     android:dropDownVerticalOffset="4dp"
                     android:text="All" />
 
@@ -112,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:minHeight="40dp"
                     android:textSize="12sp"
-                    android:completionThreshold="1"
+                    android:completionThreshold="3"
                     android:dropDownVerticalOffset="4dp"
                     android:text="All" />
 

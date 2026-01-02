@@ -130,7 +130,7 @@ class BooksToReadFragment : Fragment() {
                 onItemMoved = { fromPosition, toPosition ->
                     // Get current list from adapter
                     val currentList = adapter.currentList.toList()
-                    if (fromPosition >= 0 && toPosition >= 0 && 
+                    if (fromPosition >= 0 && toPosition >= 0 &&
                         fromPosition < currentList.size && toPosition < currentList.size) {
                         viewModel.reorderBooks(fromPosition, toPosition, currentList)
                     }
@@ -143,6 +143,21 @@ class BooksToReadFragment : Fragment() {
             // Setup drag and drop
             val itemTouchHelper = ItemTouchHelper(createItemTouchHelperCallback())
             itemTouchHelper.attachToRecyclerView(binding.recyclerView)
+
+            // Prevent filter dropdowns from opening when scrolling/dragging RecyclerView
+            binding.recyclerView.setOnTouchListener { _, event ->
+                when (event.action) {
+                    android.view.MotionEvent.ACTION_DOWN,
+                    android.view.MotionEvent.ACTION_MOVE -> {
+                        // Dismiss any open dropdowns and clear focus from filters
+                        binding.actvAuthorFilter.dismissDropDown()
+                        binding.actvCategoryFilter.dismissDropDown()
+                        binding.actvAuthorFilter.clearFocus()
+                        binding.actvCategoryFilter.clearFocus()
+                    }
+                }
+                false // Don't consume the event, let RecyclerView handle it
+            }
 
             android.util.Log.d("BookBuddy", "RecyclerView setup successful")
         } catch (e: Exception) {
@@ -300,9 +315,9 @@ class BooksToReadFragment : Fragment() {
     private var currentBooks: List<Book> = emptyList()
 
     private fun setupFilterAndSort() {
-        // Set threshold for AutoCompleteTextView to show suggestions immediately
-        binding.actvAuthorFilter.threshold = 1 // Show suggestions after 1 character
-        binding.actvCategoryFilter.threshold = 1
+        // Set threshold for AutoCompleteTextView to show suggestions after 3 characters
+        binding.actvAuthorFilter.threshold = 3 // Show suggestions after 3 characters
+        binding.actvCategoryFilter.threshold = 3
         
         // Set dropdown background to match app theme (rounded corners, white background)
         binding.actvAuthorFilter.setDropDownBackgroundDrawable(
@@ -315,84 +330,55 @@ class BooksToReadFragment : Fragment() {
         // Setup author filter - use ViewModel to get all authors with filterable adapter
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.allAuthors.collect { authors ->
-                val authorList = listOf("All") + authors
-                // Use filterable ArrayAdapter for autocomplete with custom layout
-                val authorAdapter = object : ArrayAdapter<String>(
+                val authorList = listOf("All") + authors.sorted()
+                android.util.Log.d("BookBuddy", "Author list updated: ${authorList.size} items - $authorList")
+
+                // Get current text and selection before updating adapter
+                val currentText = binding.actvAuthorFilter.text?.toString() ?: ""
+                val wasAll = currentText == "All" || currentText.isEmpty()
+
+                // Use simple ArrayAdapter - it will filter automatically
+                val authorAdapter = ArrayAdapter(
                     requireContext(),
                     R.layout.dropdown_item_filter,
-                    authorList
-                ) {
-                    override fun getFilter(): android.widget.Filter {
-                        return object : android.widget.Filter() {
-                            override fun performFiltering(constraint: CharSequence?): FilterResults {
-                                val results = FilterResults()
-                                val filteredList = mutableListOf<String>()
-                                
-                                val filterPattern = if (constraint.isNullOrBlank()) {
-                                    ""
-                                } else {
-                                    constraint.toString().lowercase().trim()
-                                }
-                                
-                                if (filterPattern.isEmpty()) {
-                                    // Show all when empty
-                                    filteredList.addAll(authorList)
-                                } else {
-                                    // Always include "All" option
-                                    filteredList.add("All")
-                                    // Filter based on pattern
-                                    for (author in authorList) {
-                                        if (author != "All" && author.lowercase().contains(filterPattern)) {
-                                            filteredList.add(author)
-                                        }
-                                    }
-                                }
-                                
-                                results.values = filteredList
-                                results.count = filteredList.size
-                                android.util.Log.d("BookBuddy", "Author filter: pattern='$filterPattern', results=${filteredList.size}")
-                                return results
-                            }
-                            
-                            @Suppress("UNCHECKED_CAST")
-                            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                                clear()
-                                if (results != null && results.count > 0) {
-                                    addAll(results.values as List<String>)
-                                    notifyDataSetChanged()
-                                    android.util.Log.d("BookBuddy", "Author adapter updated with ${results.count} items")
-                                } else {
-                                    notifyDataSetInvalidated()
-                                }
-                            }
-                        }
+                    authorList.filter { it != "All" }  // Exclude "All" from suggestions
+                )
+
+                // Set the new adapter
+                binding.actvAuthorFilter.setAdapter(authorAdapter)
+
+                // Restore text without resetting filter (filter will be triggered when user types)
+                binding.actvAuthorFilter.post {
+                    // Restore the text - if it was "All" or empty, set to "All"
+                    if (wasAll) {
+                        binding.actvAuthorFilter.setText("All", false)
+                    } else if (currentText.isNotEmpty() && authorList.contains(currentText)) {
+                        // Only restore if the author still exists
+                        binding.actvAuthorFilter.setText(currentText, false)
+                    } else {
+                        // Author was deleted, reset to "All"
+                        binding.actvAuthorFilter.setText("All", false)
+                        selectedAuthor = null
+                        applyFiltersAndSort()
                     }
                 }
                 
-                binding.actvAuthorFilter.setAdapter(authorAdapter)
-                
                 if (binding.actvAuthorFilter.tag == null) {
                     binding.actvAuthorFilter.tag = "listener_set"
-                    
-                    // Clear "All" when clicked/focused
+
+                    // Clear "All" when clicked/focused to allow typing
                     binding.actvAuthorFilter.setOnClickListener {
-                        if (binding.actvAuthorFilter.text.toString() == "All") {
+                        val currentText = binding.actvAuthorFilter.text.toString()
+                        if (currentText == "All") {
                             binding.actvAuthorFilter.setText("")
                         }
-                        // Show dropdown with all options
-                        binding.actvAuthorFilter.post {
-                            binding.actvAuthorFilter.showDropDown()
-                        }
                     }
-                    
+
                     binding.actvAuthorFilter.setOnFocusChangeListener { _, hasFocus ->
                         if (hasFocus) {
-                            if (binding.actvAuthorFilter.text.toString() == "All") {
+                            val currentText = binding.actvAuthorFilter.text.toString()
+                            if (currentText == "All") {
                                 binding.actvAuthorFilter.setText("")
-                            }
-                            // Show dropdown with all options when focused
-                            binding.actvAuthorFilter.post {
-                                binding.actvAuthorFilter.showDropDown()
                             }
                         }
                     }
@@ -420,30 +406,26 @@ class BooksToReadFragment : Fragment() {
                         }
                     }
                     
-                    // Add TextWatcher - show dropdown as user types
+                    // Add TextWatcher - handle text changes
                     binding.actvAuthorFilter.addTextChangedListener(object : TextWatcher {
                         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                         override fun afterTextChanged(s: Editable?) {
                             if (isUpdatingFilterProgrammatically) {
-                                // Don't show dropdown when updating programmatically
                                 return
                             }
-                            val text = s?.toString()?.trim() ?: ""
-                            android.util.Log.d("BookBuddy", "Author text changed: '$text'")
-                            
-                            // Only show dropdown if field has focus (user is typing)
+                            val text = s?.toString() ?: ""
+                            android.util.Log.d("BookBuddy", "Author text changed: '$text', length: ${text.length}")
+
+                            // Only handle when field has focus (user is typing)
                             if (binding.actvAuthorFilter.hasFocus()) {
-                                binding.actvAuthorFilter.post {
-                                    if (text.isNotEmpty() && binding.actvAuthorFilter.adapter != null) {
-                                        binding.actvAuthorFilter.showDropDown()
-                                    } else if (text.isEmpty()) {
-                                        // Show all options when empty
-                                        binding.actvAuthorFilter.showDropDown()
-                                        selectedAuthor = null
-                                        applyFiltersAndSort()
-                                    }
+                                if (text.isEmpty()) {
+                                    // Reset filter to "All" when text is cleared
+                                    binding.actvAuthorFilter.dismissDropDown()
+                                    selectedAuthor = null
+                                    applyFiltersAndSort()
                                 }
+                                // AutoCompleteTextView will handle filtering automatically based on threshold
                             }
                         }
                     })
@@ -461,68 +443,18 @@ class BooksToReadFragment : Fragment() {
                 val currentText = binding.actvCategoryFilter.text?.toString() ?: ""
                 val wasAll = currentText == "All" || currentText.isEmpty()
                 
-                // Use filterable ArrayAdapter for autocomplete with custom layout
-                val categoryAdapter = object : ArrayAdapter<String>(
+                // Use simple ArrayAdapter - it will filter automatically
+                val categoryAdapter = ArrayAdapter(
                     requireContext(),
                     R.layout.dropdown_item_filter,
-                    categoryList
-                ) {
-                    override fun getFilter(): android.widget.Filter {
-                        return object : android.widget.Filter() {
-                            override fun performFiltering(constraint: CharSequence?): FilterResults {
-                                val results = FilterResults()
-                                val filteredList = mutableListOf<String>()
-                                
-                                val filterPattern = if (constraint.isNullOrBlank()) {
-                                    ""
-                                } else {
-                                    constraint.toString().lowercase().trim()
-                                }
-                                
-                                // Always use the categoryList from the closure (latest data)
-                                if (filterPattern.isEmpty()) {
-                                    // Show all when empty - use the full category list
-                                    filteredList.addAll(categoryList)
-                                } else {
-                                    // Always include "All" option
-                                    filteredList.add("All")
-                                    // Filter based on pattern
-                                    for (category in categoryList) {
-                                        if (category != "All" && category.lowercase().contains(filterPattern)) {
-                                            filteredList.add(category)
-                                        }
-                                    }
-                                }
-                                
-                                results.values = filteredList
-                                results.count = filteredList.size
-                                android.util.Log.d("BookBuddy", "Category filter: pattern='$filterPattern', source=${categoryList.size}, results=${filteredList.size}")
-                                return results
-                            }
-                            
-                            @Suppress("UNCHECKED_CAST")
-                            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                                clear()
-                                if (results != null && results.count > 0) {
-                                    addAll(results.values as List<String>)
-                                    notifyDataSetChanged()
-                                    android.util.Log.d("BookBuddy", "Category adapter updated with ${results.count} items")
-                                } else {
-                                    notifyDataSetInvalidated()
-                                }
-                            }
-                        }
-                    }
-                }
+                    categoryList.filter { it != "All" }  // Exclude "All" from suggestions
+                )
                 
                 // Set the new adapter
                 binding.actvCategoryFilter.setAdapter(categoryAdapter)
-                
-                // Reset filter state and restore text
+
+                // Restore text without resetting filter (filter will be triggered when user types)
                 binding.actvCategoryFilter.post {
-                    // Clear any active filter by filtering with empty string
-                    categoryAdapter.filter.filter("")
-                    
                     // Restore the text - if it was "All" or empty, set to "All"
                     if (wasAll) {
                         binding.actvCategoryFilter.setText("All", false)
@@ -540,25 +472,19 @@ class BooksToReadFragment : Fragment() {
                 if (binding.actvCategoryFilter.tag == null) {
                     binding.actvCategoryFilter.tag = "listener_set"
                     
-                    // Clear "All" when clicked/focused
+                    // Clear "All" when clicked/focused to allow typing
                     binding.actvCategoryFilter.setOnClickListener {
-                        if (binding.actvCategoryFilter.text.toString() == "All") {
+                        val currentText = binding.actvCategoryFilter.text.toString()
+                        if (currentText == "All") {
                             binding.actvCategoryFilter.setText("")
                         }
-                        // Show dropdown with all options
-                        binding.actvCategoryFilter.post {
-                            binding.actvCategoryFilter.showDropDown()
-                        }
                     }
-                    
+
                     binding.actvCategoryFilter.setOnFocusChangeListener { _, hasFocus ->
                         if (hasFocus) {
-                            if (binding.actvCategoryFilter.text.toString() == "All") {
+                            val currentText = binding.actvCategoryFilter.text.toString()
+                            if (currentText == "All") {
                                 binding.actvCategoryFilter.setText("")
-                            }
-                            // Show dropdown with all options when focused
-                            binding.actvCategoryFilter.post {
-                                binding.actvCategoryFilter.showDropDown()
                             }
                         }
                     }
@@ -586,30 +512,26 @@ class BooksToReadFragment : Fragment() {
                         }
                     }
                     
-                    // Add TextWatcher - show dropdown as user types
+                    // Add TextWatcher - handle text changes
                     binding.actvCategoryFilter.addTextChangedListener(object : TextWatcher {
                         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                         override fun afterTextChanged(s: Editable?) {
                             if (isUpdatingFilterProgrammatically) {
-                                // Don't show dropdown when updating programmatically
                                 return
                             }
-                            val text = s?.toString()?.trim() ?: ""
-                            android.util.Log.d("BookBuddy", "Category text changed: '$text'")
-                            
-                            // Only show dropdown if field has focus (user is typing)
+                            val text = s?.toString() ?: ""
+                            android.util.Log.d("BookBuddy", "Category text changed: '$text', length: ${text.length}")
+
+                            // Only handle when field has focus (user is typing)
                             if (binding.actvCategoryFilter.hasFocus()) {
-                                binding.actvCategoryFilter.post {
-                                    if (text.isNotEmpty() && binding.actvCategoryFilter.adapter != null) {
-                                        binding.actvCategoryFilter.showDropDown()
-                                    } else if (text.isEmpty()) {
-                                        // Show all options when empty
-                                        binding.actvCategoryFilter.showDropDown()
-                                        selectedCategory = null
-                                        applyFiltersAndSort()
-                                    }
+                                if (text.isEmpty()) {
+                                    // Reset filter to "All" when text is cleared
+                                    binding.actvCategoryFilter.dismissDropDown()
+                                    selectedCategory = null
+                                    applyFiltersAndSort()
                                 }
+                                // AutoCompleteTextView will handle filtering automatically based on threshold
                             }
                         }
                     })
